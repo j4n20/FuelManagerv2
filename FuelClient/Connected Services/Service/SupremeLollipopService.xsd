@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SupremeLollipopService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FEmployee" nillable="true" type="tns:FEmployee" />
+  <xs:complexType name="ArrayOfFEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FEmployee" nillable="true" type="tns:FEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFEmployee" nillable="true" type="tns:ArrayOfFEmployee" />
+  <xs:complexType name="ArrayOfCar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
+  <xs:complexType name="Car">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LicensePlate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Car" nillable="true" type="tns:Car" />
+  <xs:complexType name="ArrayOfRefuel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Refuel" nillable="true" type="tns:Refuel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRefuel" nillable="true" type="tns:ArrayOfRefuel" />
+  <xs:complexType name="Refuel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:float" />
+      <xs:element minOccurs="0" name="Car" nillable="true" type="tns:Car" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mileage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:float" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Refuel" nillable="true" type="tns:Refuel" />
+  <xs:complexType name="ArrayOfEmployeeToCarRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeToCarRelation" nillable="true" type="tns:EmployeeToCarRelation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeToCarRelation" nillable="true" type="tns:ArrayOfEmployeeToCarRelation" />
+  <xs:complexType name="EmployeeToCarRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Area" nillable="true" type="tns:Car" />
+      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:FEmployee" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeToCarRelation" nillable="true" type="tns:EmployeeToCarRelation" />
+</xs:schema>

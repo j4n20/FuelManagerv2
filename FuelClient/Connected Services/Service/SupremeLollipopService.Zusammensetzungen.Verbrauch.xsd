@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Verbrauch" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Verbrauch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService" />
+  <xs:complexType name="Verbrauch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AveragePrice" type="xs:double" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="Car" nillable="true" type="q1:Car" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="Refuels" nillable="true" type="q2:Refuel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Verbrauch" nillable="true" type="tns:Verbrauch" />
+</xs:schema>

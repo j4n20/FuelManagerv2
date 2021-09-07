@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AuthentificationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Enums" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Verbrauch" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Preisentwicklung" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthentificationService_CheckCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCredentials" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_CheckCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetCars_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCars" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetCars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetRefuels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefuels" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetRefuels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefuelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetEmployeeToCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeToCar" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetEmployeeToCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeToCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_SaveOrUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_SaveOrUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCar" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteRefuel_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRefuel" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteRefuel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRefuelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteEmployeeToCarRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeToCarRelation" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_DeleteEmployeeToCarRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeToCarRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCar" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddRefuel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRefuel" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddRefuel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRefuelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddEmployeeToCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeToCar" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_AddEmployeeToCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeToCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetVerbrauch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauch" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetVerbrauch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetPreisentwicklung_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreisentwicklung" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetPreisentwicklung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreisentwicklungResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAuthentificationService">
+    <wsdl:operation name="CheckCredentials">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/CheckCredentials" message="tns:IAuthentificationService_CheckCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/CheckCredentialsResponse" message="tns:IAuthentificationService_CheckCredentials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/ChangePassword" message="tns:IAuthentificationService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/ChangePasswordResponse" message="tns:IAuthentificationService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetUsers" message="tns:IAuthentificationService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetUsersResponse" message="tns:IAuthentificationService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCars">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetCars" message="tns:IAuthentificationService_GetCars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetCarsResponse" message="tns:IAuthentificationService_GetCars_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRefuels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetRefuels" message="tns:IAuthentificationService_GetRefuels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetRefuelsResponse" message="tns:IAuthentificationService_GetRefuels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeToCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetEmployeeToCar" message="tns:IAuthentificationService_GetEmployeeToCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetEmployeeToCarResponse" message="tns:IAuthentificationService_GetEmployeeToCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/SaveOrUpdate" message="tns:IAuthentificationService_SaveOrUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/SaveOrUpdateResponse" message="tns:IAuthentificationService_SaveOrUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteUser" message="tns:IAuthentificationService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteUserResponse" message="tns:IAuthentificationService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteCar" message="tns:IAuthentificationService_DeleteCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteCarResponse" message="tns:IAuthentificationService_DeleteCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRefuel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteRefuel" message="tns:IAuthentificationService_DeleteRefuel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteRefuelResponse" message="tns:IAuthentificationService_DeleteRefuel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeToCarRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelation" message="tns:IAuthentificationService_DeleteEmployeeToCarRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelationResponse" message="tns:IAuthentificationService_DeleteEmployeeToCarRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/AddUser" message="tns:IAuthentificationService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/AddUserResponse" message="tns:IAuthentificationService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/AddCar" message="tns:IAuthentificationService_AddCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/AddCarResponse" message="tns:IAuthentificationService_AddCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRefuel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/AddRefuel" message="tns:IAuthentificationService_AddRefuel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/AddRefuelResponse" message="tns:IAuthentificationService_AddRefuel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeToCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/AddEmployeeToCar" message="tns:IAuthentificationService_AddEmployeeToCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/AddEmployeeToCarResponse" message="tns:IAuthentificationService_AddEmployeeToCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetVerbrauch" message="tns:IAuthentificationService_GetVerbrauch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetVerbrauchResponse" message="tns:IAuthentificationService_GetVerbrauch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreisentwicklung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetPreisentwicklung" message="tns:IAuthentificationService_GetPreisentwicklung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetPreisentwicklungResponse" message="tns:IAuthentificationService_GetPreisentwicklung_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAuthentificationService" type="tns:IAuthentificationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckCredentials">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/CheckCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCars">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefuels">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetRefuels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeToCar">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetEmployeeToCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/SaveOrUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCar">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/DeleteCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRefuel">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/DeleteRefuel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeToCarRelation">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/AddCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRefuel">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/AddRefuel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeToCar">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/AddEmployeeToCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauch">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetVerbrauch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreisentwicklung">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetPreisentwicklung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthentificationService">
+    <wsdl:port name="BasicHttpBinding_IAuthentificationService" binding="tns:BasicHttpBinding_IAuthentificationService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/SupremeLollipopService/AuthentificationService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
