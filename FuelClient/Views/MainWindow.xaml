@@ -1,0 +1,140 @@
+﻿<Window x:Class="FuelClient.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FuelClient.Views"
+        xmlns:viewModel="clr-namespace:SupremeLollipopClient.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+        mc:Ignorable="d"
+        Title="Fuel Manager" Height="600" Width="920"
+        Icon="../images/logo.png"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image RenderTransformOrigin="0.502,0.547" RenderOptions.BitmapScalingMode="Fant" Source="../images/logo.png"/>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Width="100"
+                    Margin="19,49,24,19"
+                    Command="{Binding NewCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="PlusThick" Margin="0,0,10,0" Height="20" Width="20"/>
+
+                    <TextBlock Height="20">Neu</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="1"
+                    Margin="0,49,5,19"
+                    Command="{Binding EditCommand}">
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="AccountHardHat" Margin="0,0,10,0" Height="20" Width="20"/>
+                    <TextBlock Height="20">Bearbeiten</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="2"
+                    Margin="19,49,129,19" Grid.ColumnSpan="2"
+                    Command="{Binding SaveCommand}">
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="ContentSave" Margin="0,0,10,0" Height="20" Width="19"/>
+                    <TextBlock Height="20">Speichern</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="3"
+                    Margin="43,49,115.5,19" Grid.ColumnSpan="2"
+                    Command="{Binding DeleteCommand}">
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="Delete" Margin="0,0,10,0" Height="20" Width="20"/>
+                    <TextBlock Height="20">Löschen</TextBlock>
+                </StackPanel>
+            </Button>
+
+        </Grid>
+
+        <StackPanel Grid.Row="1">
+            <RadioButton Content="Tanken"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         IsChecked="True"
+                         Command="{Binding HomeViewCommand}"/>
+            <RadioButton Content="Verbrauch"
+                         Foreground="Black"
+                         Height="40"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding KundenViewCommand}"/>
+            <RadioButton Content="Preisentwicklung"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding AufträgeViewCommand}"
+                         />
+            <RadioButton Content="Import"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding BestsellerViewCommand}"/>
+            <RadioButton Content="Export"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding UmsatzranglisteViewCommand}"/>
+            <RadioButton Content="Administration"
+                         Name="AdminButton"
+                         Background="DimGray"
+                         Margin="0,20,0,0"
+                         Height="40"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"/>
+            <RadioButton Content="Fahrzeuge"
+                         Name="ArtikelButton"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding ArticleViewCommand}"/>
+            <RadioButton Content="Mitarbeiter"
+                         Name="FahrerButton"
+                         Height="40"
+                         Foreground="Black"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding DriverViewCommand}"/>
+            
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" 
+                        Grid.Column="1"
+                        Margin="10"
+                        Content="{Binding CurrentView}"/>
+
+    </Grid>
+</Window>

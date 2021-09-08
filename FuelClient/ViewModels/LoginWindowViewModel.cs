@@ -11,10 +11,10 @@ namespace SupremeLollipopClient.ViewModels
 {
     public class LoginWindowViewModel: ViewModelBase
     {
-        private SupremeLollipopService.FEmployee mSelectedModel = new SupremeLollipopService.FEmployee();
+        private FuelClient.Service.FEmployee mSelectedModel = new FuelClient.Service.FEmployee();
 
-        public ObservableCollection<SupremeLollipopService.FEmployee> Models { get; set; } = new ObservableCollection<SupremeLollipopService.FEmployee>();
-        public SupremeLollipopService.FEmployee SelectedModel
+        public ObservableCollection<FuelClient.Service.FEmployee> Models { get; set; } = new ObservableCollection<FuelClient.Service.FEmployee>();
+        public FuelClient.Service.FEmployee SelectedModel
         {
             get { return mSelectedModel; }
             set
