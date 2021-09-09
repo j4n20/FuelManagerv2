@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace SupremeLollipopClient.Framework
+namespace FuelClient.Framework
 {
     public class RelayCommand : ICommand
     {

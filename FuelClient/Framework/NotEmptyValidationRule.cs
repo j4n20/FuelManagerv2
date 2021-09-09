@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Controls;
 
-namespace SupremeLollipopClient.Framework
+namespace FuelClient.Framework
 {
     public class NotEmptyValidationRule : ValidationRule
     {

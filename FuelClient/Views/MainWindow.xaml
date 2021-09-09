@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FuelClient.Views"
-        xmlns:viewModel="clr-namespace:SupremeLollipopClient.ViewModels"
+        xmlns:viewModel="clr-namespace:FuelClient.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"

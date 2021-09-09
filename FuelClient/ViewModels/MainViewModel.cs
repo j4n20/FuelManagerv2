@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using SupremeLollipopClient.Framework;
+using FuelClient.Framework;
 
-namespace SupremeLollipopClient.ViewModels
+namespace FuelClient.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="FuelClient.Views.VerbrauchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuelClient.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:viewmodels="clr-namespace:FuelClient.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:VerbrauchViewmodel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="451" d:DesignWidth="711">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Verbrauch" FontWeight="Bold" Background="#FFF3CA20"/>
+        <ComboBox
+            Grid.Row="1"
+                Name="CarComboBox"
+                Style="{StaticResource MaterialDesignFilledComboBox}"
+                materialDesign:HintAssist.Hint="Fahrzeug"
+                ItemsSource="{Binding CarModels}"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Margin="10,10,340,377"
+                Visibility="{Binding EditMode, Converter={StaticResource BooleanToVisibilityConverter}}" RenderTransformOrigin="0.442,0.508"
+                >
+            <ComboBox.SelectedItem>
+                <Binding
+                        Path="CarBox"
+                        Mode="TwoWay"
+                        UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <colorsDomain:NotEmptyValidationRule
+                                ValidatesOnTargetUpdated="True" 
+                                xmlns:colorsDomain="clr-namespace:FuelClient.Framework" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.SelectedItem>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <Binding Path="LicensePlate"/>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button 
+            Grid.Row="1"
+            Margin="399,10,216,377" Height="Auto"
+            Command="{Binding RefreshCommand}"
+            >
+            <materialDesign:PackIcon Kind="RefreshCircle" RenderTransformOrigin="0.469,0.562" Height="20" Width="65"/>
+        </Button>
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding VerbrauchModel}" Margin="0,69,0,0" SelectionChanged="DataGrid_SelectionChanged">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Monat" Binding="{Binding Refuels.Date}"/>
+                <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding Car.LicensePlate}"/>
+                <DataGridTextColumn Width="3*" Header="Verbrauch / 100km" Binding="{Binding Refuels.Mileage}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

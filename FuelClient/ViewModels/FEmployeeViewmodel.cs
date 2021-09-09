@@ -6,13 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SupremeLollipopClient.Framework;
+using FuelClient.Framework;
 using FuelClient.Service;
 
-namespace SupremeLollipopClient.ViewModels
+namespace FuelClient.ViewModels
 {
     class FEMmployeeViewmodel : ViewModelBase
     {
+        public ICommand MinusCommand { get; set; }
+        public ICommand PlusCommand { get; set; }
         public ICommand EmployeeSelectedCommand { get; set; }
         private FuelClient.Service.FEmployee mSelectedModel = new FuelClient.Service.FEmployee();
 
@@ -70,6 +72,17 @@ namespace SupremeLollipopClient.ViewModels
             set
             {
                 _setchecked = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _setenabled = false;
+        public bool Setenabled
+        {
+            get { return _setenabled; }
+            set
+            {
+                _setenabled = value;
                 OnPropertyChanged();
             }
         }

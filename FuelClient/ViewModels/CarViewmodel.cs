@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SupremeLollipopClient.Framework;
+using FuelClient.Framework;
 
-namespace SupremeLollipopClient.ViewModels
+namespace FuelClient.ViewModels
 {
     class CarViewmodel : ViewModelBase
     {

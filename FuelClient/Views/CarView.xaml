@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="FuelClient.Views.CarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuelClient.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CarViewmodel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="451" 
+             d:DesignWidth="711">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Fahrzeuge verwalten" FontWeight="Bold" Background="#FFF3CA20"/>
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Models}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  SelectedItem="{Binding SelectedModel}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding LicensePlate}"></DataGridTextColumn>
+                <DataGridTextColumn Width="2*" Header="Hersteller" Binding="{Binding Vendor}"></DataGridTextColumn>
+                <DataGridTextColumn Width="2*" Header="Modell" Binding="{Binding Model}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Row="2" Content="{Binding SelectedModel.LicensePlate }" FontWeight="Bold" Background="#FFF3CA20" Margin="0,0.6,0.2,240.6" Grid.RowSpan="2"/>
+
+        <Grid Grid.Row="3">
+            <TextBox
+                x:Name="KennzeichenTextBox"
+                materialDesign:HintAssist.Hint="Kennzeichen" Margin="38,24,291,180"
+                Text="{Binding SelectedModel.LicensePlate}"
+                FontSize="13"
+                IsReadOnly="{Binding Setread}"/>
+            <TextBox
+                x:Name="HerstellerTextBox"
+                materialDesign:HintAssist.Hint="Hersteller" Margin="38,66,407,139"
+                Text="{Binding SelectedModel.Vendor}"
+                FontSize="13"
+                IsReadOnly="{Binding Setread}"/>
+            <TextBox
+                x:Name="ModellTextBox"
+                materialDesign:HintAssist.Hint="Modell" Margin="342,66,75,140"
+                Text="{Binding SelectedModel.Model}"
+                FontSize="13"
+                IsReadOnly="{Binding Setread}"/>
+        </Grid>
+    </Grid>
+</UserControl>

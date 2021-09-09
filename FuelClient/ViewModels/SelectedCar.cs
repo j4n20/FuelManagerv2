@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FuelClient.Service;
 
-namespace SupremeLollipopClient.ViewModels
+namespace FuelClient.ViewModels
 {
     public class SelectedCar
     {
