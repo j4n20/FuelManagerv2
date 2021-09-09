@@ -59,7 +59,7 @@
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
-                  ItemsSource="{Binding PreisentwicklungModel}" Margin="0,69,0,0" SelectionChanged="DataGrid_SelectionChanged">
+                  ItemsSource="{Binding PreisentwicklungModel}" Margin="0,69,0,0">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="1*" Header="Monat" Binding="{Binding Refuels.Date}"/>

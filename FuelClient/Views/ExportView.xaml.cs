@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FuelClient.Theme
+namespace FuelClient.Views
 {
     /// <summary>
-    /// Interaktionslogik für MenuButtonTheme.xaml
+    /// Interaktionslogik für ExportView.xaml
     /// </summary>
-    public partial class MenuButtonTheme : Window
+    public partial class ExportView : UserControl
     {
-        public MenuButtonTheme()
+        public ExportView()
         {
             InitializeComponent();
         }

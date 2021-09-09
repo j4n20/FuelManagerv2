@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="FuelClient.Views.ExportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuelClient.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:viewmodels="clr-namespace:FuelClient.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ExportViewmodel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="451" d:DesignWidth="711">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Export" FontWeight="Bold" Background="#FFF3CA20"/>
+        <Button 
+            Grid.Row="1"
+            Margin="10,10,605,377" Height="Auto"
+            Command="{Binding ExportCommand}"
+            >
+            <materialDesign:PackIcon Kind="ArrowCollapseDown" RenderTransformOrigin="0.469,0.562" Height="20" Width="65"/>
+        </Button>
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding RefuelsModel}" Margin="0,69,0,0"
+                  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Datum" Binding="{Binding Date}"/>
+                <DataGridTextColumn Width="3*" Header="Kennzeichen" Binding="{Binding Car.LicensePlate}"/>
+                <DataGridTextColumn Width="1*" Header="Preis" Binding="{Binding Price}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

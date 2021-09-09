@@ -13,7 +13,7 @@
             Margin="256,196,255,191" Height="Auto"
             Command="{Binding ImportCommand}"
             >
-            <materialDesign:PackIcon Kind="Import" RenderTransformOrigin="0.469,0.562" Height="53" Width="94"/>
+            <materialDesign:PackIcon Kind="ArrowCollapseUp" RenderTransformOrigin="0.469,0.562" Height="53" Width="94"/>
         </Button>
     </Grid>
 </UserControl>
