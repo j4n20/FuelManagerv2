@@ -77,6 +77,7 @@
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PreisentwicklungViewmodel.cs" />
+    <Compile Include="ViewModels\ImportViewmodel.cs" />
     <Compile Include="ViewModels\RefuelsViewmodel.cs" />
     <Compile Include="ViewModels\SelectedCar.cs" />
     <Compile Include="ViewModels\VerbrauchViewmodel.cs" />
@@ -85,6 +86,9 @@
     </Compile>
     <Compile Include="Views\FEmployeeView.xaml.cs">
       <DependentUpon>FEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportView.xaml.cs">
+      <DependentUpon>ImportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -127,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
