@@ -12,9 +12,9 @@ namespace FuelClient.Controller
     {
         private LoginWindow mView;
         private LoginWindowViewModel mViewModel;
-        private FuelClient.App mApplication;
+        private App mApplication;
         private AuthentificationServiceClient client = new AuthentificationServiceClient();
-        public LoginWindowController(LoginWindow view, LoginWindowViewModel videoMode, FuelClient.App app)
+        public LoginWindowController(LoginWindow view, LoginWindowViewModel videoMode, App app)
         {
             mView = view;
             mViewModel = videoMode;

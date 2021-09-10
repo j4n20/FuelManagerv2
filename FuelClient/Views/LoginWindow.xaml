@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FuelClient"
-        xmlns:viewModel="clr-namespace:FuelClient.ViewModels"
         mc:Ignorable="d"
         Title="Fuel Manager" Height="500" Width="900"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" xmlns:viewmodels1="clr-namespace:FuelClient.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels1:LoginWindowViewModel}"

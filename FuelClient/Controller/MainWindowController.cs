@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels;
+using FuelClient.Views;
 using Autofac;
 
 namespace FuelClient.Controller
@@ -29,8 +30,8 @@ namespace FuelClient.Controller
             mView.DataContext = mViewModel;
             mApplication.MainWindow = mView;
 
-            /*HomeViewController mHomeViewController = mApplication.Container.Resolve<HomeViewController>();
-            mViewModel.CurrentView = mHomeViewController.mViewModel;*/
+            CarController mHomeViewController = mApplication.Container.Resolve<CarController>();
+            mViewModel.CurrentView = mHomeViewController.mViewModel;
 
             mViewModel.HomeViewCommand = new RelayCommand(ExecuteHomeViewCommand);
             mViewModel.KundenViewCommand = new RelayCommand(ExecuteKundenViewCommand);
