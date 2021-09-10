@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\CarController.cs" />
+    <Compile Include="Controller\LoginWindowController.cs" />
     <Compile Include="Controller\MainWindowController.cs" />
     <Compile Include="Framework\BaseController.cs" />
     <Compile Include="Framework\NotEmptyValidationRule.cs" />
