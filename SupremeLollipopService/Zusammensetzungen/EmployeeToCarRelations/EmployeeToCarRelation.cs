@@ -12,9 +12,9 @@ namespace SupremeLollipopService
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public Car Area { get; set; } = new Car();
+        public Car Car { get; set; } = new Car();
         [DataMember]
-        public FEmployee Employee { get; set; } = new FEmployee();
+        public FEmployee FEmployee { get; set; } = new FEmployee();
 
     }
 }

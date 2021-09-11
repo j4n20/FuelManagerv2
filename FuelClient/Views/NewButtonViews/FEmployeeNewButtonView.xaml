@@ -1,0 +1,54 @@
+﻿<Window x:Class="FuelClient.Views.NewButtonViews.FEmployeeNewButtonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FuelClient.Views.NewButtonViews"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:viewmodels="clr-namespace:FuelClient.ViewModels.NewButtonViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:FEMmployeeNewButtonViewmodel}" 
+        mc:Ignorable="d"
+        Title="Mitarbeiter hinzufügen" Height="350" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <Label Content="Mitarbeiter hinzufügen:" Margin="0,10,0,293" FontSize="15" FontWeight="Bold"/>
+        <TextBox
+                 Name="SelectedFirstname"
+                materialDesign:HintAssist.Hint="Vorname" Margin="11,157,248,158"
+                Text="{Binding SelectedModel.Firstname}"
+                FontSize="13"
+                />
+        <TextBox
+                 Name="SelectedLastname"
+                materialDesign:HintAssist.Hint="Nachname" Margin="11,197,249,117"
+                Text="{Binding SelectedModel.Lastname}"
+                FontSize="13"
+                />
+        <TextBox
+                x:Name="SelectedUsername"
+                materialDesign:HintAssist.Hint="Vorname" Margin="10,70,249,243"
+                Text="{Binding SelectedModel.Username}"
+                FontSize="13"
+                />
+        <PasswordBox
+                x:Name="PasswordBox" Margin="10,112,249,198" Password="Password"/>
+        <CheckBox
+                x:Name="AdminCheckBox"
+                materialDesign:HintAssist.Hint="isAdmin" Margin="10,233,249,78"
+                IsChecked="{Binding SelectedModel.isAdmin}"
+                Content="Admin"
+                
+                FontSize="13"/>
+        <Button Content="Hinzufügen" 
+            Margin="28,282,258.4,26.4" 
+            Height="Auto"
+            Command="{Binding AddFEmployeeCommand}"/>
+        <Button Content="Abbrechen" 
+            Margin="254,282,28,26.4" 
+            Height="Auto"
+            Command="{Binding CancelCommand}"/>
+
+    </Grid>
+</Window>

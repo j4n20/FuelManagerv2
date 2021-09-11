@@ -5,12 +5,12 @@ namespace SupremeLollipopService
     {
         public EmployeeToCarRelationMap()
         {
-            Table("EmployeeToAreaRelations");
+            Table("EmployeeToCarRelations");
 
             Id(x => x.Id).GeneratedBy.Native().Default(0);
 
-            References<Car>(x => x.Area).Column("CarId").Not.Nullable();
-            References<FEmployee>(x => x.Employee).Column("EmployeeId").Not.Nullable();
+            References<Car>(x => x.Car).Column("CarId").Not.Nullable();
+            References<FEmployee>(x => x.FEmployee).Column("EmployeeId").Not.Nullable();
         }
     }
 }

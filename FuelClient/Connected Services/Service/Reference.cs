@@ -38,6 +38,9 @@ namespace FuelClient.Service {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FuelClient.Service.Car[] ToCarsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UsernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -122,6 +125,19 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public FuelClient.Service.Car[] ToCars {
+            get {
+                return this.ToCarsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ToCarsField, value) != true)) {
+                    this.ToCarsField = value;
+                    this.RaisePropertyChanged("ToCars");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Username {
             get {
                 return this.UsernameField;
@@ -168,30 +184,6 @@ namespace FuelClient.Service {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PasswordChangeEnum.Password", Namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen." +
-        "Enums")]
-    public enum PasswordChangeEnumPassword : ushort {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OldPasswordNotCorrect = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NewPasswordNotMatching = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        InputEmpty = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ChangedSuccessfully = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CannotUseSamePassword = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DatabaseError = 5,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -301,6 +293,30 @@ namespace FuelClient.Service {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PasswordChangeEnum.Password", Namespace="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen." +
+        "Enums")]
+    public enum PasswordChangeEnumPassword : ushort {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OldPasswordNotCorrect = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewPasswordNotMatching = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InputEmpty = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChangedSuccessfully = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CannotUseSamePassword = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DatabaseError = 5,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -454,10 +470,10 @@ namespace FuelClient.Service {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FuelClient.Service.Car AreaField;
+        private FuelClient.Service.Car CarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FuelClient.Service.FEmployee EmployeeField;
+        private FuelClient.Service.FEmployee FEmployeeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -473,27 +489,27 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FuelClient.Service.Car Area {
+        public FuelClient.Service.Car Car {
             get {
-                return this.AreaField;
+                return this.CarField;
             }
             set {
-                if ((object.ReferenceEquals(this.AreaField, value) != true)) {
-                    this.AreaField = value;
-                    this.RaisePropertyChanged("Area");
+                if ((object.ReferenceEquals(this.CarField, value) != true)) {
+                    this.CarField = value;
+                    this.RaisePropertyChanged("Car");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FuelClient.Service.FEmployee Employee {
+        public FuelClient.Service.FEmployee FEmployee {
             get {
-                return this.EmployeeField;
+                return this.FEmployeeField;
             }
             set {
-                if ((object.ReferenceEquals(this.EmployeeField, value) != true)) {
-                    this.EmployeeField = value;
-                    this.RaisePropertyChanged("Employee");
+                if ((object.ReferenceEquals(this.FEmployeeField, value) != true)) {
+                    this.FEmployeeField = value;
+                    this.RaisePropertyChanged("FEmployee");
                 }
             }
         }
@@ -719,9 +735,9 @@ namespace FuelClient.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/SaveOrUpdate", ReplyAction="http://tempuri.org/IAuthentificationService/SaveOrUpdateResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.FEmployee))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.FEmployee[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Car[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Car))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.FEmployee[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Refuel[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Refuel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.EmployeeToCarRelation[]))]
@@ -735,10 +751,10 @@ namespace FuelClient.Service {
         System.Threading.Tasks.Task SaveOrUpdateAsync(object o);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/DeleteUser", ReplyAction="http://tempuri.org/IAuthentificationService/DeleteUserResponse")]
-        bool DeleteUser(string username);
+        bool DeleteUser(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/DeleteUser", ReplyAction="http://tempuri.org/IAuthentificationService/DeleteUserResponse")]
-        System.Threading.Tasks.Task<bool> DeleteUserAsync(string username);
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/DeleteCar", ReplyAction="http://tempuri.org/IAuthentificationService/DeleteCarResponse")]
         bool DeleteCar(int CarId);
@@ -878,12 +894,12 @@ namespace FuelClient.Service {
             return base.Channel.SaveOrUpdateAsync(o);
         }
         
-        public bool DeleteUser(string username) {
-            return base.Channel.DeleteUser(username);
+        public bool DeleteUser(int id) {
+            return base.Channel.DeleteUser(id);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteUserAsync(string username) {
-            return base.Channel.DeleteUserAsync(username);
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(int id) {
+            return base.Channel.DeleteUserAsync(id);
         }
         
         public bool DeleteCar(int CarId) {

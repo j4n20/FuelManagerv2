@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace SupremeLollipopService
 {
@@ -22,5 +23,7 @@ namespace SupremeLollipopService
         public int Version { get; set; }
         [DataMember]
         public int Id { get; set; }
+        [DataMember]
+        public IList<Car> ToCars { get; set; }
     }
 }

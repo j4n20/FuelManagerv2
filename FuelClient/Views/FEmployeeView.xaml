@@ -73,11 +73,11 @@
                 Content="Admin"
                 IsEnabled="{Binding Setenabled}"
                 FontSize="13"/>
-            <Button Margin="350,18,313,194" Height="Auto"
+            <Button Margin="350,18,276,183" Height="Auto"
                     Command="{Binding PlusCommand}">
                 <materialDesign:PackIcon Kind="PlusThick"/>
             </Button>
-            <Button Margin="413,18,250,194" Height="Auto"
+            <Button Margin="440,18,186,183" Height="Auto"
                     Command="{Binding MinusCommand}">
                 <materialDesign:PackIcon Kind="MinusThick"/>
             </Button>

@@ -18,6 +18,8 @@ namespace SupremeLollipopService
             Version(x => x.Version).Generated.Always().UnsavedValue("0").Access.Property();
             DynamicUpdate();
             OptimisticLock.Version();
+
+            HasManyToMany(x => x.ToCars).Table("EmployeeToCarRelations").ParentKeyColumn("EmployeeId").ChildKeyColumn("CarId").Cascade.All().Not.LazyLoad();
         }
     }
 }

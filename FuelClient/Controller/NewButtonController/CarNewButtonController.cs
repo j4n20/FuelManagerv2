@@ -26,7 +26,7 @@ namespace FuelClient.Controller.NewButtonController
             mApplication = app;
             mView.DataContext = mViewModel;
 
-            mViewModel.AddCarCommand = new RelayCommand(ExecuteAddAreaCommand);
+            mViewModel.AddCarCommand = new RelayCommand(ExecuteAddCarCommand);
             mViewModel.CancelCommand = new RelayCommand(ExecuteCancelCommand);
         }
 
@@ -38,7 +38,7 @@ namespace FuelClient.Controller.NewButtonController
             isCancelled = true;
         }
 
-        public void ExecuteAddAreaCommand(object o)
+        public void ExecuteAddCarCommand(object o)
         {
             mView.DialogResult = true;
             mView.Close();

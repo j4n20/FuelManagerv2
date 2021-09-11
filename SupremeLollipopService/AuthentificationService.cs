@@ -160,7 +160,7 @@ namespace SupremeLollipopService
                 }
             }
         }
-        public bool DeleteUser(String username)
+        public bool DeleteUser(int id)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
@@ -170,7 +170,7 @@ namespace SupremeLollipopService
                     try
                     {
                         var returnList = session.QueryOver<FEmployee>()
-                      .Where(t => t.Username == username).List()[0];
+                      .Where(t => t.Id == id).List()[0];
                         session.Delete(returnList);
                         transaction.Commit();
                         return true;
@@ -385,7 +385,7 @@ namespace SupremeLollipopService
 
                     try
                     {
-                        var deleteList = session.QueryOver<EmployeeToCarRelation>().Where(x => x.Employee.Id == employee.Id).List();
+                        var deleteList = session.QueryOver<EmployeeToCarRelation>().Where(x => x.FEmployee.Id == employee.Id).List();
                         foreach (var x in deleteList)
                         {
                             session.Delete(x);
@@ -414,7 +414,7 @@ namespace SupremeLollipopService
                     try
                     {
                         var returnList = session.QueryOver<EmployeeToCarRelation>()
-                      .Where(t => t.Employee.Id == employee.Id).List();
+                      .Where(t => t.FEmployee.Id == employee.Id).List();
                         foreach (var relation in returnList)
                         {
                             session.Delete(relation);

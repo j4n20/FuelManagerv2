@@ -7,18 +7,13 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCars" nillable="true" type="tns:ArrayOfCar" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" type="xs:int" />
       <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FEmployee" nillable="true" type="tns:FEmployee" />
-  <xs:complexType name="ArrayOfFEmployee">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FEmployee" nillable="true" type="tns:FEmployee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFEmployee" nillable="true" type="tns:ArrayOfFEmployee" />
   <xs:complexType name="ArrayOfCar">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
@@ -35,6 +30,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Car" nillable="true" type="tns:Car" />
+  <xs:complexType name="ArrayOfFEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FEmployee" nillable="true" type="tns:FEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFEmployee" nillable="true" type="tns:ArrayOfFEmployee" />
   <xs:complexType name="ArrayOfRefuel">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Refuel" nillable="true" type="tns:Refuel" />
@@ -61,8 +62,8 @@
   <xs:element name="ArrayOfEmployeeToCarRelation" nillable="true" type="tns:ArrayOfEmployeeToCarRelation" />
   <xs:complexType name="EmployeeToCarRelation">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Area" nillable="true" type="tns:Car" />
-      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:FEmployee" />
+      <xs:element minOccurs="0" name="Car" nillable="true" type="tns:Car" />
+      <xs:element minOccurs="0" name="FEmployee" nillable="true" type="tns:FEmployee" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

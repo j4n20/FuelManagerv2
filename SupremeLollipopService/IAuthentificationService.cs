@@ -33,7 +33,7 @@ namespace SupremeLollipopService
         [OperationContract]
         void SaveOrUpdate(object o);
         [OperationContract]
-        bool DeleteUser(String username);
+        bool DeleteUser(int id);
         [OperationContract]
         bool DeleteCar(int CarId);
         [OperationContract]
