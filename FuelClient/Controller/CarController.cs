@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Autofac;
+using FuelClient.Controller.NewButtonController;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
@@ -23,10 +25,10 @@ namespace FuelClient.Controller
             mView = view;
             mViewModel = videoMode;
             mApplication = app;
-            foreach (var area in client.GetCars())
+            foreach (var car in client.GetCars())
             {
-                mViewModel.Models.Add(area);
-                mViewModel.SelectedModel = area;
+                mViewModel.Models.Add(car);
+                mViewModel.SelectedModel = car;
             }
 
             mView.DataContext = mViewModel;
@@ -42,7 +44,7 @@ namespace FuelClient.Controller
                 if (check == false)
                 {
                     //mView.DeletionCheck.Content = "Error";
-                    MessageBox.Show("Error: There is data connected to this area");
+                    MessageBox.Show("Error: There is data connected to this car");
                 }
                 else
                 {
@@ -52,29 +54,29 @@ namespace FuelClient.Controller
             }
         }
 
-        /*public void ExecuteNewCommand()
+        public void ExecuteNewCommand()
         {
-            AreaNewButtonController mController = mApplication.Container.Resolve<AreaNewButtonController>();
-            var result = mController.AddArea();
+            CarNewButtonController mController = mApplication.Container.Resolve<CarNewButtonController>();
+            var result = mController.AddCar();
 
             if (result != null)
             {
-                client.AddArea(result);
+                client.AddCar(result);
                 mViewModel.Models.Clear();
-                foreach (var area in client.GetAreas())
+                foreach (var car in client.GetCars())
                 {
-                    mViewModel.Models.Add(area);
-                    mViewModel.SelectedModel = area;
+                    mViewModel.Models.Add(car);
+                    mViewModel.SelectedModel = car;
                 }
             }
-        }*/
+        }
         public void ExecuteEditCommand()
         {
             mViewModel.Setread = false;
         }
         public void ExecuteSaveCommand()
         {
-            Car area = new Car
+            Car car = new Car
             {
 
                 LicensePlate = mView.KennzeichenTextBox.Text,

@@ -107,6 +107,7 @@
     <Compile Include="Controller\ImportController.cs" />
     <Compile Include="Controller\LoginWindowController.cs" />
     <Compile Include="Controller\MainWindowController.cs" />
+    <Compile Include="Controller\NewButtonController\CarNewButtonController.cs" />
     <Compile Include="Controller\PreisentwicklungController.cs" />
     <Compile Include="Controller\RefuelController.cs" />
     <Compile Include="Controller\VerbrauchController.cs" />
@@ -114,6 +115,10 @@
     <Compile Include="Framework\NotEmptyValidationRule.cs" />
     <Compile Include="Framework\RelayCommand.cs" />
     <Compile Include="Framework\ViewModelBase.cs" />
+    <Compile Include="ViewModels\NewButtonViewModels\CarNewButtonViewmodel.cs" />
+    <Compile Include="Views\NewButtonViews\CarNewButtonView.xaml.cs">
+      <DependentUpon>CarNewButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CarViewmodel.cs" />
     <Compile Include="ViewModels\ExportViewmodel.cs" />
     <Compile Include="ViewModels\FEmployeeViewmodel.cs" />
@@ -155,6 +160,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\NewButtonViews\CarNewButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

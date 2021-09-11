@@ -59,7 +59,11 @@ namespace FuelClient.Controller
 
         public void ExecuteNewCommand(object o)
         {
-
+            if(mViewModel.SelectedController is CarController)
+            {
+                CarController controller = (CarController)mViewModel.SelectedController;
+                controller.ExecuteNewCommand();
+            }
             /*if (mViewModel.SelectedController is UserController)
             {
                 UserController controller = (UserController)mViewModel.SelectedController;
@@ -242,6 +246,11 @@ namespace FuelClient.Controller
 
         public bool CanExecuteNewCommand(object o)
         {
+            if(mViewModel.SelectedController is CarController)
+            {
+                CarController controller = (CarController)mViewModel.SelectedController;
+                return true;
+            }
             /*if (mViewModel.SelectedController is UserController)
             {
                 UserController controller = (UserController)mViewModel.SelectedController;
