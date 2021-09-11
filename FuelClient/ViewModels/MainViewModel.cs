@@ -10,13 +10,13 @@ namespace FuelClient.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ICommand AufträgeViewCommand { get; set; }
-        public ICommand UmsatzranglisteViewCommand { get; set; }
-        public ICommand BestsellerViewCommand { get; set; }
-        public ICommand UserViewCommand { get; set; }
-        public ICommand ArticleViewCommand { get; set; }
-        public ICommand DriverViewCommand { get; set; }
-        public ICommand AreaViewCommand { get; set; }
+        public ICommand CarViewCommand { get; set; }
+        public ICommand RefuelViewCommand { get; set; }
+        public ICommand VerbrauchViewCommand { get; set; }
+        public ICommand PreisentwicklungViewCommand { get; set; }
+        public ICommand ImportViewCommand { get; set; }
+        public ICommand ExportViewCommand { get; set; }
+        public ICommand FEmployeeViewCommand { get; set; }
         public ICommand EditCommand{ get; set; }
         public ICommand SaveCommand { get; set; }
         public ICommand DeleteCommand { get; set; }

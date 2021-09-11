@@ -33,15 +33,13 @@ namespace FuelClient.Controller
             CarController mHomeViewController = mApplication.Container.Resolve<CarController>();
             mViewModel.CurrentView = mHomeViewController.mViewModel;
 
-            mViewModel.HomeViewCommand = new RelayCommand(ExecuteHomeViewCommand);
-            mViewModel.KundenViewCommand = new RelayCommand(ExecuteKundenViewCommand);
-            mViewModel.AreaViewCommand = new RelayCommand(ExecuteAreaViewCommand);
-            mViewModel.ArticleViewCommand = new RelayCommand(ExecuteArticleViewCommand);
-            mViewModel.DriverViewCommand = new RelayCommand(ExecuteDriverViewCommand);
-            mViewModel.BestsellerViewCommand = new RelayCommand(ExecuteBestsellerViewCommand);
-            mViewModel.UmsatzranglisteViewCommand = new RelayCommand(ExecuteUmsatzranglisteViewCommand);
-            mViewModel.UserViewCommand = new RelayCommand(ExecuteUserViewCommand);
-            mViewModel.AufträgeViewCommand = new RelayCommand(ExecuteAufträgeViewCommand);
+            mViewModel.FEmployeeViewCommand = new RelayCommand(ExecuteFEmployeeViewCommand);
+            mViewModel.RefuelViewCommand = new RelayCommand(ExecuteRefuelViewCommand);
+            mViewModel.VerbrauchViewCommand = new RelayCommand(ExecuteVerbrauchViewCommand);
+            mViewModel.PreisentwicklungViewCommand = new RelayCommand(ExecutePreisentwicklungViewCommand);
+            mViewModel.ImportViewCommand = new RelayCommand(ExecuteImportViewCommand);
+            mViewModel.ExportViewCommand = new RelayCommand(ExecuteExportViewCommand);
+            mViewModel.CarViewCommand = new RelayCommand(ExecuteCarViewCommand);
 
 
             mViewModel.EditCommand = new RelayCommand(ExecuteEditCommand, CanExecuteEditCommand);
@@ -99,13 +97,13 @@ namespace FuelClient.Controller
         public void ExecuteEditCommand(object o)
         {
 
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 controller.ExecuteEditCommand();
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 controller.ExecuteEditCommand();
@@ -135,13 +133,13 @@ namespace FuelClient.Controller
         public void ExecuteSaveCommand(object o)
         {
 
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 controller.ExecuteSaveCommand();
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 controller.ExecuteSaveCommand();
@@ -171,13 +169,13 @@ namespace FuelClient.Controller
         public void ExecuteDeleteCommand(object o)
         {
 
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 controller.ExecuteDeleteCommand();
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 controller.ExecuteDeleteCommand();
@@ -206,14 +204,14 @@ namespace FuelClient.Controller
 
         public bool CanExecuteDeleteCommand(object o)
         {
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
 
             }
 
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
@@ -280,13 +278,13 @@ namespace FuelClient.Controller
 
         public bool CanExecuteEditCommand(object o)
         {
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
@@ -316,13 +314,13 @@ namespace FuelClient.Controller
 
         public bool CanExecuteSaveCommand(object o)
         {
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is CarController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                CarController controller = (CarController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
@@ -350,74 +348,58 @@ namespace FuelClient.Controller
             return false;
         }
 
-        public void ExecuteAufträgeViewCommand(object o)
+        public void ExecuteCarViewCommand(object o)
         {
-            /*AufträgeController mAufträgeViewController = mApplication.Container.Resolve<AufträgeController>();
-            mViewModel.CurrentView = mAufträgeViewController;
-            mViewModel.CurrentView = mAufträgeViewController.mViewModel;
-            mViewModel.SelectedController = mAufträgeViewController;*/
+            CarController mCarViewController = mApplication.Container.Resolve<CarController>();
+            mViewModel.CurrentView = mCarViewController;
+            mViewModel.CurrentView = mCarViewController.mViewModel;
+            mViewModel.SelectedController = mCarViewController;
         }
-        public void ExecuteBestsellerViewCommand(object o)
+        public void ExecuteFEmployeeViewCommand(object o)
         {
-            /*BestsellerController mBestsellerViewController = mApplication.Container.Resolve<BestsellerController>();
-            mViewModel.CurrentView = mBestsellerViewController;
-            mViewModel.CurrentView = mBestsellerViewController.mViewModel;
-            mViewModel.SelectedController = mBestsellerViewController;*/
-        }
-
-        public void ExecuteUmsatzranglisteViewCommand(object o)
-        {
-            /*UmsatzranglisteController mUmsatzranglisteViewController = mApplication.Container.Resolve<UmsatzranglisteController>();
-            mViewModel.CurrentView = mUmsatzranglisteViewController;
-            mViewModel.CurrentView = mUmsatzranglisteViewController.mViewModel;
-            mViewModel.SelectedController = mUmsatzranglisteViewController;*/
+            FEmployeeController mFEmployeeController = mApplication.Container.Resolve<FEmployeeController>();
+            mViewModel.CurrentView = mFEmployeeController;
+            mViewModel.CurrentView = mFEmployeeController.mViewModel;
+            mViewModel.SelectedController = mFEmployeeController;
         }
 
-        public void ExecuteHomeViewCommand(object o)
+        public void ExecuteRefuelViewCommand(object o)
         {
-            /*HomeViewController mHomeViewController = mApplication.Container.Resolve<HomeViewController>();
-            mViewModel.CurrentView = mHomeViewController;
-            mViewModel.CurrentView = mHomeViewController.mViewModel;
-            mViewModel.SelectedController = mHomeViewController;*/
-        }
-        public void ExecuteAreaViewCommand(object o)
-        {
-            /*LiefergebieteController mAreaViewController = mApplication.Container.Resolve<LiefergebieteController>();
-            mViewModel.CurrentView = mAreaViewController;
-            mViewModel.CurrentView = mAreaViewController.mViewModel;
-            mViewModel.SelectedController = mAreaViewController;*/
+            RefuelController mRefuelViewController = mApplication.Container.Resolve<RefuelController>();
+            mViewModel.CurrentView = mRefuelViewController;
+            mViewModel.CurrentView = mRefuelViewController.mViewModel;
+            mViewModel.SelectedController = mRefuelViewController;
         }
 
-        public void ExecuteArticleViewCommand(object o)
+        public void ExecuteVerbrauchViewCommand(object o)
         {
-            /*ArticleController mArticleViewController = mApplication.Container.Resolve<ArticleController>();
-            mViewModel.CurrentView = mArticleViewController;
-            mViewModel.CurrentView = mArticleViewController.mViewModel;
-            mViewModel.SelectedController = mArticleViewController;*/
+            VerbrauchController mVerbrauchViewController = mApplication.Container.Resolve<VerbrauchController>();
+            mViewModel.CurrentView = mVerbrauchViewController;
+            mViewModel.CurrentView = mVerbrauchViewController.mViewModel;
+            mViewModel.SelectedController = mVerbrauchViewController;
+        }
+        public void ExecutePreisentwicklungViewCommand(object o)
+        {
+            PreisentwicklungController mPreisentwicklungViewController = mApplication.Container.Resolve<PreisentwicklungController>();
+            mViewModel.CurrentView = mPreisentwicklungViewController;
+            mViewModel.CurrentView = mPreisentwicklungViewController.mViewModel;
+            mViewModel.SelectedController = mPreisentwicklungViewController;
         }
 
-        public void ExecuteDriverViewCommand(object o)
+        public void ExecuteImportViewCommand(object o)
         {
-            /*DriverController mDriverViewController = mApplication.Container.Resolve<DriverController>();
-            mViewModel.CurrentView = mDriverViewController;
-            mViewModel.CurrentView = mDriverViewController.mViewModel;
-            mViewModel.SelectedController = mDriverViewController;*/
+            ImportController mImportViewController = mApplication.Container.Resolve<ImportController>();
+            mViewModel.CurrentView = mImportViewController;
+            mViewModel.CurrentView = mImportViewController.mViewModel;
+            mViewModel.SelectedController = mImportViewController;
         }
 
-        public void ExecuteKundenViewCommand(object o)
+        public void ExecuteExportViewCommand(object o)
         {
-            /*KundenController mKundenController = mApplication.Container.Resolve<KundenController>();
-            mViewModel.CurrentView = mKundenController;
-            mViewModel.CurrentView = mKundenController.mViewModel;
-            mViewModel.SelectedController = mKundenController;*/
-        }
-
-        public void ExecuteUserViewCommand(object o)
-        {
-            /*UserController mUserController = mApplication.Container.Resolve<UserController>();
-            mViewModel.CurrentView = mUserController;
-            mViewModel.CurrentView = mUserController.mViewModel;
-            mViewModel.SelectedController = mUserController;*/
+            ExportController mExportViewController = mApplication.Container.Resolve<ExportController>();
+            mViewModel.CurrentView = mExportViewController;
+            mViewModel.CurrentView = mExportViewController.mViewModel;
+            mViewModel.SelectedController = mExportViewController;
         }
     }
 }

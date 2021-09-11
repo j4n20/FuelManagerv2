@@ -20,9 +20,25 @@
             
             <DataTemplate DataType="{x:Type viewModel:CarViewmodel}">
                 <view:CarView/>
-                
             </DataTemplate>
-            
+            <DataTemplate DataType="{x:Type viewModel:ImportViewmodel}">
+                <view:ImportView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ExportViewmodel}">
+                <view:ExportView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FEMmployeeViewmodel}">
+                <view:FEmployeeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:RefuelsViewmodel}">
+                <view:RefuelsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:PreisentwicklungViewmodel}">
+                <view:PreisentwicklungView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:VerbrauchViewmodel}">
+                <view:VerbrauchView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

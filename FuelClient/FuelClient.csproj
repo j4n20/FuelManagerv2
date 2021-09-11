@@ -102,8 +102,14 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\CarController.cs" />
+    <Compile Include="Controller\ExportController.cs" />
+    <Compile Include="Controller\FEmployeeController.cs" />
+    <Compile Include="Controller\ImportController.cs" />
     <Compile Include="Controller\LoginWindowController.cs" />
     <Compile Include="Controller\MainWindowController.cs" />
+    <Compile Include="Controller\PreisentwicklungController.cs" />
+    <Compile Include="Controller\RefuelController.cs" />
+    <Compile Include="Controller\VerbrauchController.cs" />
     <Compile Include="Framework\BaseController.cs" />
     <Compile Include="Framework\NotEmptyValidationRule.cs" />
     <Compile Include="Framework\RelayCommand.cs" />

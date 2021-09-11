@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
@@ -32,12 +33,12 @@ namespace FuelClient.Controller
 
         }
 
-        /*public void ExecuteDeleteCommand()
+        public void ExecuteDeleteCommand()
         {
             if (mViewModel.SelectedModel != null)
             {
-                var postalCode = Int32.Parse(mView.PostCodeTextBox.Text);
-                var check = client.DeleteArea(postalCode);
+               
+                var check = client.DeleteCar(mViewModel.SelectedModel.Id);
                 if (check == false)
                 {
                     //mView.DeletionCheck.Content = "Error";
@@ -49,7 +50,7 @@ namespace FuelClient.Controller
 
                 }
             }
-        }*/
+        }
 
         /*public void ExecuteNewCommand()
         {
@@ -71,24 +72,16 @@ namespace FuelClient.Controller
         {
             mViewModel.Setread = false;
         }
-        /*public void ExecuteSaveCommand()
+        public void ExecuteSaveCommand()
         {
-            Area area = new Area
+            Car area = new Car
             {
 
-                Description = mView.CityTextBox.Text,
+                LicensePlate = mView.KennzeichenTextBox.Text,
+                Vendor = mView.HerstellerTextBox.Text,
+                Model = mView.ModellTextBox.Text,
                 Id = mViewModel.SelectedModel.Id
             };
-            try
-            {
-                area.PostCode = Int32.Parse(mView.PostCodeTextBox.Text);
-                client.AddArea(area);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Please enter a valid number.", "Error");
-                return;
-            }
-        }*/
+        }
     }
 }

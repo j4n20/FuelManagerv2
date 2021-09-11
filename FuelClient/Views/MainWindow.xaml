@@ -81,32 +81,32 @@
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
                          IsChecked="True"
-                         Command="{Binding HomeViewCommand}"/>
+                         Command="{Binding RefuelViewCommand}"/>
             <RadioButton Content="Verbrauch"
                          Foreground="Black"
                          Height="40"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding KundenViewCommand}"/>
+                         Command="{Binding VerbrauchViewCommand}"/>
             <RadioButton Content="Preisentwicklung"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding AufträgeViewCommand}"
+                         Command="{Binding PreisentwicklungViewCommand}"
                          />
             <RadioButton Content="Import"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding BestsellerViewCommand}"/>
+                         Command="{Binding ImportViewCommand}"/>
             <RadioButton Content="Export"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding UmsatzranglisteViewCommand}"/>
+                         Command="{Binding ExportViewCommand}"/>
             <RadioButton Content="Administration"
                          Name="AdminButton"
                          Background="DimGray"
@@ -120,14 +120,14 @@
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding ArticleViewCommand}"/>
+                         Command="{Binding CarViewCommand}"/>
             <RadioButton Content="Mitarbeiter"
                          Name="FahrerButton"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding DriverViewCommand}"/>
+                         Command="{Binding FEmployeeViewCommand}"/>
             
         </StackPanel>
 
