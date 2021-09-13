@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Autofac;
+using FuelClient.Controller.NewButtonController;
 using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels;
@@ -85,29 +86,22 @@ namespace FuelClient.Controller
                 }
             }
         }
-        /*public void ExecuteNewCommand()
+        public void ExecuteNewCommand()
         {
-            DriverNewButtonController mController = mApplication.Container.Resolve<DriverNewButtonController>();
-            var result = mController.AddDriver();
+            FEmployeeNewButtonController mController = mApplication.Container.Resolve<FEmployeeNewButtonController>();
+            var result = mController.AddFEmployee();
 
             if (result != null)
             {
-                var check = client.AddDriver(result);
-                if (check != true)
-                {
-                    MessageBox.Show("Missing Input", "Error");
-                    return;
-                }
-
                 mViewModel.Models.Clear();
-                foreach (var driver in client.GetDrivers())
+                foreach (var driver in client.GetUsers())
                 {
                     mViewModel.Models.Add(driver);
                     mViewModel.SelectedModel = driver;
                 }
             }
 
-        }*/
+        }
 
         public void ExecuteSaveCommand()
         {

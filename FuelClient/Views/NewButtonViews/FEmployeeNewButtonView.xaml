@@ -17,19 +17,19 @@
         <TextBox
                  Name="SelectedFirstname"
                 materialDesign:HintAssist.Hint="Vorname" Margin="11,157,248,158"
-                Text="{Binding SelectedModel.Firstname}"
+                
                 FontSize="13"
                 />
         <TextBox
                  Name="SelectedLastname"
                 materialDesign:HintAssist.Hint="Nachname" Margin="11,197,249,117"
-                Text="{Binding SelectedModel.Lastname}"
+                
                 FontSize="13"
                 />
         <TextBox
                 x:Name="SelectedUsername"
-                materialDesign:HintAssist.Hint="Vorname" Margin="10,70,249,243"
-                Text="{Binding SelectedModel.Username}"
+                materialDesign:HintAssist.Hint="Username" Margin="10,70,249,243"
+                
                 FontSize="13"
                 />
         <PasswordBox
@@ -37,7 +37,7 @@
         <CheckBox
                 x:Name="AdminCheckBox"
                 materialDesign:HintAssist.Hint="isAdmin" Margin="10,233,249,78"
-                IsChecked="{Binding SelectedModel.isAdmin}"
+                
                 Content="Admin"
                 
                 FontSize="13"/>

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FuelClient.Controller.NewButtonController
 {
@@ -25,50 +26,62 @@ namespace FuelClient.Controller.NewButtonController
             mApplication = app;
             mView.DataContext = mViewModel;
 
-            mViewModel.ConnectCommand = new RelayCommand(ExecuteConnectCommand);
+            mViewModel.AddFEmployeeCommand = new RelayCommand(ExecuteNewCommand);
             mViewModel.CancelCommand = new RelayCommand(ExecuteCancelCommand);
         }
 
         public void ExecuteCancelCommand(object o)
         {
             mView.DialogResult = true;
-            mViewModel.CarModel = null;
+            mViewModel.Model = null;
             mView.Close();
             isCancelled = true;
         }
-        public void ExecuteConnectCommand(object o)
+        public void ExecuteNewCommand(object o)
         {
             mView.DialogResult = true;
             mView.Close();
         }
 
-        public Car ConnectCar()
+        public FEmployee AddFEmployee()
         {
-            
-                FEmployee fEmployee = new FEmployee
+            mView.ShowDialog();
+            if(isCancelled == false)
+            {
+                try
                 {
-                    Firstname = mView.SelectedFirstname.Text,
-                    Lastname = mView.SelectedLastname.Text,
-                    EmployeeNumber = mView.SelectedEmployeeNumber.Text,
-                    Id = mViewModel.SelectedModel.Id
-                };
-                var relationList = new List<EmployeeToAreaRelation>();
-                foreach (var selectedarea in mViewModel.AreaModels)
-                {
-                    if (selectedarea.isSelected == true)
+                    mViewModel.Model = new FEmployee
                     {
-                        EmployeeToAreaRelation relation = new EmployeeToAreaRelation()
-                        {
-                            Area = selectedarea.Gebiet,
-                            Employee = driver
-                        };
-                        relationList.Add(relation);
+                        Firstname = mView.SelectedFirstname.Text,
+                        Lastname = mView.SelectedLastname.Text,
+                        EmployeeNo = Guid.NewGuid().ToString(),
+                        
+                        Username = mView.SelectedUsername.Text.ToLower()
+                    };
+                    if (mView.AdminCheckBox.IsChecked == true)
+                    {
+                        mViewModel.Model.isAdmin = true;
+                    }
+                    else
+                    {
+                        mViewModel.Model.isAdmin = false;
                     }
                 }
-                client.AddDriver(driver);
-                client.AddEmployeToArea(relationList.ToArray(), driver);
-            
+                catch (FormatException)
+                {
+                    MessageBox.Show("Something went wrong please try again.");
+                    return null;
+                }
+                var check = client.AddUser(mViewModel.Model);
+                if(check!= true)
+                {
+                    MessageBox.Show("Error: Missing input");
+                    return null;
+                }
+                return mViewModel.Model;
+            }
 
+            return mViewModel.Model;
         }
     }
 }

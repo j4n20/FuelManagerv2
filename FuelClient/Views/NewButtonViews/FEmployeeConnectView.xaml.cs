@@ -17,9 +17,9 @@ namespace FuelClient.Views.NewButtonViews
     /// <summary>
     /// Interaktionslogik für FEmployeeNewButtonView.xaml
     /// </summary>
-    public partial class FEmployeeNewButtonView : Window
+    public partial class FEmployeeConnectButtonView : Window
     {
-        public FEmployeeNewButtonView()
+        public FEmployeeConnectButtonView()
         {
             InitializeComponent();
         }

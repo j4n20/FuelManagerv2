@@ -64,13 +64,13 @@ namespace FuelClient.Controller
                 CarController controller = (CarController)mViewModel.SelectedController;
                 controller.ExecuteNewCommand();
             }
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is FEmployeeController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteNewCommand();
 
             }
-            else if (mViewModel.SelectedController is LiefergebieteController)
+            /*else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
                 controller.ExecuteNewCommand();
@@ -143,11 +143,11 @@ namespace FuelClient.Controller
                 controller.ExecuteSaveCommand();
 
             }
-            /*else if (mViewModel.SelectedController is LiefergebieteController)
+            else if (mViewModel.SelectedController is FEmployeeController)
             {
-                LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteSaveCommand();
-            }
+            }/*
             else if (mViewModel.SelectedController is DriverController)
             {
                 DriverController controller = (DriverController)mViewModel.SelectedController;
@@ -179,11 +179,11 @@ namespace FuelClient.Controller
                 controller.ExecuteDeleteCommand();
 
             }
-            /*else if (mViewModel.SelectedController is LiefergebieteController)
+            else if (mViewModel.SelectedController is FEmployeeController)
             {
-                LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteDeleteCommand();
-            }
+            }/*
             else if (mViewModel.SelectedController is DriverController)
             {
                 DriverController controller = (DriverController)mViewModel.SelectedController;
@@ -215,11 +215,11 @@ namespace FuelClient.Controller
 
             }
 
-            /*else if (mViewModel.SelectedController is LiefergebieteController)
+            else if (mViewModel.SelectedController is FEmployeeController)
             {
-                LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
-            }
+            }/*
             else if (mViewModel.SelectedController is DriverController)
             {
                 DriverController controller = (DriverController)mViewModel.SelectedController;
@@ -251,12 +251,12 @@ namespace FuelClient.Controller
                 CarController controller = (CarController)mViewModel.SelectedController;
                 return true;
             }
-            /*if (mViewModel.SelectedController is UserController)
+            if (mViewModel.SelectedController is FEmployeeController)
             {
-                UserController controller = (UserController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return true;
 
-            }
+            }/*
             else if (mViewModel.SelectedController is LiefergebieteController)
             {
                 LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
