@@ -242,7 +242,7 @@
   <xs:element name="GetEmployeeToCarByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetEmployeeToCarByIdResult" nillable="true" type="q18:ArrayOfCar" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetEmployeeToCarByIdResult" nillable="true" type="q18:ArrayOfEmployeeToCarRelation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

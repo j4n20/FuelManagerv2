@@ -146,7 +146,7 @@ namespace FuelClient.Controller
             else if (mViewModel.SelectedController is FEmployeeController)
             {
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
-                ///controller.ExecuteSaveCommand();
+                controller.ExecuteSaveCommand();
             }/*
             else if (mViewModel.SelectedController is DriverController)
             {
@@ -329,11 +329,11 @@ namespace FuelClient.Controller
                 return controller.mViewModel.SelectedModel != null ? true : false;
 
             }
-            /*else if (mViewModel.SelectedController is LiefergebieteController)
+            else if (mViewModel.SelectedController is FEmployeeController)
             {
-                LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
+                FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
-            }
+            }/*
             else if (mViewModel.SelectedController is DriverController)
             {
                 DriverController controller = (DriverController)mViewModel.SelectedController;

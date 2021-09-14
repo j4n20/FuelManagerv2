@@ -28,6 +28,7 @@ namespace FuelClient.ViewModels
             set
             {
                 mSelectedModel = value;
+                CarModels.Clear();
                 OnPropertyChanged();
             }
         }

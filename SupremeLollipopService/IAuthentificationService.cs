@@ -53,7 +53,7 @@ namespace SupremeLollipopService
         [OperationContract]
         Preisentwicklung GetPreisentwicklung();
         [OperationContract]
-        List<Car> GetEmployeeToCarById(FEmployee employee);
+        List<EmployeeToCarRelation> GetEmployeeToCarById(FEmployee employee);
 
 
         // TODO: Hier Dienstvorgänge hinzufügen

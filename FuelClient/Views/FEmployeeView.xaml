@@ -88,6 +88,7 @@
                   CanUserAddRows="False"
                   IsReadOnly="True"
                   SelectedItem="{Binding SelectedCarModel}" Margin="342,69,10,10"
+                  
                   Background="White"
                 >
                 <DataGrid.Columns>

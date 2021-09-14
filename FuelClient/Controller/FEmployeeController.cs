@@ -51,16 +51,12 @@ namespace FuelClient.Controller
             fEmployee = mViewModel.SelectedModel;
 
             var carList = client.GetEmployeeToCarById(fEmployee);
-            /*foreach (var car in carList)
+            foreach (var entry in carList)
             {
-                var newCheckCar = new Car();
-                ///newCheckCar.Vehicle = car;
-                if (fEmployee.ToCars.Count(_car => _car.Id == car.Id) > 0)
-                {
-                    newCheckCar.isSelected = true;
-                }
-                mViewModel.CarModels.Add(newCheckCar);
-            }*/
+                
+                
+                mViewModel.CarModels.Add(entry.Car);
+            }
         }
 
         public void ExecuteConnectCommand()
@@ -103,17 +99,19 @@ namespace FuelClient.Controller
 
         }
 
-        /*public void ExecuteSaveCommand()
+        public void ExecuteSaveCommand()
         {
             FEmployee fEmployee = new FEmployee
             {
                 Firstname = mView.SelectedFirstname.Text,
                 Lastname = mView.SelectedLastname.Text,
+                Username = mView.SelectedUsername.Text,
                 EmployeeNo = mView.SelectedEmployeeNumber.Text,
+                Password = mView.PasswordBox.Password,
                 Id = mViewModel.SelectedModel.Id
             };
-            var relationList = new List<EmployeeToCarRelation>();
-            foreach (var selectedarea in mViewModel.CarModels)
+            //var relationList = new List<EmployeeToCarRelation>();
+            /*foreach (var selectedarea in mViewModel.CarModels)
             {
                 if (selectedarea.isSelected == true)
                 {
@@ -124,9 +122,9 @@ namespace FuelClient.Controller
                     };
                     relationList.Add(relation);
                 }
-            }
+            }*/
             client.AddUser(fEmployee);
-            client.AddEmployeeToCar(relationList.ToArray(), fEmployee);
-        }*/
+            //client.AddEmployeeToCar(relationList.ToArray(), fEmployee);
+        }
     }
 }
