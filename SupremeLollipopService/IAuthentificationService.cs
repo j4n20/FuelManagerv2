@@ -52,6 +52,8 @@ namespace SupremeLollipopService
         Verbrauch GetVerbrauch();
         [OperationContract]
         Preisentwicklung GetPreisentwicklung();
+        [OperationContract]
+        List<Car> GetEmployeeToCarById(FEmployee employee);
 
 
         // TODO: Hier Dienstvorgänge hinzufügen

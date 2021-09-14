@@ -20,7 +20,7 @@ namespace FuelClient.ViewModels
 
 
         public ObservableCollection<FuelClient.Service.FEmployee> Models { get; set; } = new ObservableCollection<FuelClient.Service.FEmployee>();
-        public ObservableCollection<SelectedCar> CarModels { get; set; } = new ObservableCollection<SelectedCar>();
+        public ObservableCollection<Car> CarModels { get; set; } = new ObservableCollection<Car>();
 
         public FuelClient.Service.FEmployee SelectedModel
         {

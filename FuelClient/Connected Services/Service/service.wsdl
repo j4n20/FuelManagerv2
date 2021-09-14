@@ -112,6 +112,12 @@
   <wsdl:message name="IAuthentificationService_GetPreisentwicklung_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPreisentwicklungResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetEmployeeToCarById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeToCarById" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentificationService_GetEmployeeToCarById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeToCarByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuthentificationService">
     <wsdl:operation name="CheckCredentials">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/CheckCredentials" message="tns:IAuthentificationService_CheckCredentials_InputMessage" />
@@ -180,6 +186,10 @@
     <wsdl:operation name="GetPreisentwicklung">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetPreisentwicklung" message="tns:IAuthentificationService_GetPreisentwicklung_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetPreisentwicklungResponse" message="tns:IAuthentificationService_GetPreisentwicklung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeToCarById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentificationService/GetEmployeeToCarById" message="tns:IAuthentificationService_GetEmployeeToCarById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentificationService/GetEmployeeToCarByIdResponse" message="tns:IAuthentificationService_GetEmployeeToCarById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthentificationService" type="tns:IAuthentificationService">
@@ -330,6 +340,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPreisentwicklung">
       <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetPreisentwicklung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeToCarById">
+      <soap:operation soapAction="http://tempuri.org/IAuthentificationService/GetEmployeeToCarById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

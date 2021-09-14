@@ -91,10 +91,9 @@
                   Background="White"
                 >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding CarModels}"/>
-
-                    <DataGridTextColumn Width="1*" Header="Hersteller" Binding="{Binding Gebiet.PostCode }"></DataGridTextColumn>
-                    <DataGridTextColumn Width="1*" Header="Modell" Binding="{Binding Gebiet.Description}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding LicensePlate}"/>
+                    <DataGridTextColumn Width="1*" Header="Hersteller" Binding="{Binding Vendor }"></DataGridTextColumn>
+                    <DataGridTextColumn Width="1*" Header="Modell" Binding="{Binding Model}"></DataGridTextColumn>
 
                 </DataGrid.Columns>
 

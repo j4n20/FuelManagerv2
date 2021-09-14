@@ -50,17 +50,17 @@ namespace FuelClient.Controller
             mViewModel.CarModels.Clear();
             fEmployee = mViewModel.SelectedModel;
 
-            var carList = client.GetCars();
-            foreach (var car in carList)
+            var carList = client.GetEmployeeToCarById(fEmployee);
+            /*foreach (var car in carList)
             {
-                var newCheckCar = new SelectedCar();
-                newCheckCar.Vehicle = car;
+                var newCheckCar = new Car();
+                ///newCheckCar.Vehicle = car;
                 if (fEmployee.ToCars.Count(_car => _car.Id == car.Id) > 0)
                 {
                     newCheckCar.isSelected = true;
                 }
                 mViewModel.CarModels.Add(newCheckCar);
-            }
+            }*/
         }
 
         public void ExecuteConnectCommand()
@@ -103,7 +103,7 @@ namespace FuelClient.Controller
 
         }
 
-        public void ExecuteSaveCommand()
+        /*public void ExecuteSaveCommand()
         {
             FEmployee fEmployee = new FEmployee
             {
@@ -127,6 +127,6 @@ namespace FuelClient.Controller
             }
             client.AddUser(fEmployee);
             client.AddEmployeeToCar(relationList.ToArray(), fEmployee);
-        }
+        }*/
     }
 }

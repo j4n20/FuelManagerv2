@@ -149,6 +149,15 @@ namespace SupremeLollipopService
             }
         }
 
+        public List<Car> GetEmployeeToCarById(FEmployee employee)
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var result = session.QueryOver<EmployeeToCarRelation>().Where(t => t.FEmployee.Id == employee.Id).List();
+                return result as List<Car>;
+            }
+        }
+
         public void SaveOrUpdate(object o)
         {
             using (var session = NHibernateHelper.OpenSession())
