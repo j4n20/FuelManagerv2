@@ -33,7 +33,7 @@
                 FontSize="13"
                 />
         <PasswordBox
-                x:Name="PasswordBox" Margin="10,112,249,198" Password="Password"/>
+                x:Name="PasswordBox" Margin="10,112,249,198" materialDesign:HintAssist.Hint="Password"/>
         <CheckBox
                 x:Name="AdminCheckBox"
                 materialDesign:HintAssist.Hint="isAdmin" Margin="10,233,249,78"

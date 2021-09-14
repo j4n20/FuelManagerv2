@@ -266,7 +266,7 @@ namespace SupremeLollipopService
                     }
                     else
                     {
-                        String passwort = BCrypt.Net.BCrypt.HashPassword("geheim");
+                        String passwort = BCrypt.Net.BCrypt.HashPassword(user.Password);
                         user.Password = passwort;
                         using (var transaction = session.BeginTransaction())
                         {

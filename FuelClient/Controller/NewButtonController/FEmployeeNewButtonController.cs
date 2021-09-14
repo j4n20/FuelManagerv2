@@ -55,7 +55,7 @@ namespace FuelClient.Controller.NewButtonController
                         Firstname = mView.SelectedFirstname.Text,
                         Lastname = mView.SelectedLastname.Text,
                         EmployeeNo = Guid.NewGuid().ToString(),
-                        
+                        Password = mView.PasswordBox.Password,
                         Username = mView.SelectedUsername.Text.ToLower()
                     };
                     if (mView.AdminCheckBox.IsChecked == true)
