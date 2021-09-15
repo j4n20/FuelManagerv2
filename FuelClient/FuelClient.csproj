@@ -108,6 +108,7 @@
     <Compile Include="Controller\LoginWindowController.cs" />
     <Compile Include="Controller\MainWindowController.cs" />
     <Compile Include="Controller\NewButtonController\CarNewButtonController.cs" />
+    <Compile Include="Controller\NewButtonController\FEmployeeConnectController.cs" />
     <Compile Include="Controller\NewButtonController\FEmployeeNewButtonController.cs" />
     <Compile Include="Controller\PreisentwicklungController.cs" />
     <Compile Include="Controller\RefuelController.cs" />

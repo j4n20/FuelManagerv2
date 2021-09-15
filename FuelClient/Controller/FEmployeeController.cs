@@ -35,6 +35,9 @@ namespace FuelClient.Controller
 
             mView.DataContext = mViewModel;
             mViewModel.EmployeeSelectedCommand = new RelayCommand(ExecuteFEmployeeSelectedCommand);
+            //mViewModel.PlusCommand = new RelayCommand(ExecutePlusCommand);
+
+            mViewModel.ConnectCommand = new RelayCommand(ExecuteConnectCommand);
         }
 
         public void ExecuteFEmployeeSelectedCommand(object obj)
@@ -61,7 +64,7 @@ namespace FuelClient.Controller
 
         public void ExecuteConnectCommand()
         {
-
+            FEmployeeConnectController mController = mApplication.Container.Resolve<FEmployeeConnectController>();
         }
 
         public void ExecuteDeleteCommand()

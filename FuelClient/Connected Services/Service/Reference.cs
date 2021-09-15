@@ -815,6 +815,12 @@ namespace FuelClient.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetEmployeeToCarById", ReplyAction="http://tempuri.org/IAuthentificationService/GetEmployeeToCarByIdResponse")]
         System.Threading.Tasks.Task<FuelClient.Service.EmployeeToCarRelation[]> GetEmployeeToCarByIdAsync(FuelClient.Service.FEmployee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetUnconnectedCars", ReplyAction="http://tempuri.org/IAuthentificationService/GetUnconnectedCarsResponse")]
+        FuelClient.Service.Car[] GetUnconnectedCars();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetUnconnectedCars", ReplyAction="http://tempuri.org/IAuthentificationService/GetUnconnectedCarsResponse")]
+        System.Threading.Tasks.Task<FuelClient.Service.Car[]> GetUnconnectedCarsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -986,6 +992,14 @@ namespace FuelClient.Service {
         
         public System.Threading.Tasks.Task<FuelClient.Service.EmployeeToCarRelation[]> GetEmployeeToCarByIdAsync(FuelClient.Service.FEmployee employee) {
             return base.Channel.GetEmployeeToCarByIdAsync(employee);
+        }
+        
+        public FuelClient.Service.Car[] GetUnconnectedCars() {
+            return base.Channel.GetUnconnectedCars();
+        }
+        
+        public System.Threading.Tasks.Task<FuelClient.Service.Car[]> GetUnconnectedCarsAsync() {
+            return base.Channel.GetUnconnectedCarsAsync();
         }
     }
 }

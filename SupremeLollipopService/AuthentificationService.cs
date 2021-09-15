@@ -158,6 +158,24 @@ namespace SupremeLollipopService
             }
         }
 
+        public List<Car> GetUnconnectedCars()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var employeeToCarRelations = session.QueryOver<EmployeeToCarRelation>().List();
+                var cars = session.QueryOver<Car>().List();
+                List<Car> unconnectedCars = new List<Car>();
+                foreach(var employeeToCarRelation in employeeToCarRelations)
+                {
+                    if (!cars.Contains(employeeToCarRelation.Car))
+                    {
+                        unconnectedCars.Add(employeeToCarRelation.Car);
+                    }
+                }
+                return unconnectedCars;
+            }
+        }
+
         public void SaveOrUpdate(object o)
         {
             using (var session = NHibernateHelper.OpenSession())
@@ -169,6 +187,7 @@ namespace SupremeLollipopService
                 }
             }
         }
+
         public bool DeleteUser(int id)
         {
             using (var session = NHibernateHelper.OpenSession())

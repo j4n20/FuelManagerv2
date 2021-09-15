@@ -13,9 +13,11 @@ namespace FuelClient.ViewModels
 {
     class FEMmployeeViewmodel : ViewModelBase
     {
+        public ICommand EmployeeSelectedCommand { get; set; }
         public ICommand MinusCommand { get; set; }
         public ICommand PlusCommand { get; set; }
-        public ICommand EmployeeSelectedCommand { get; set; }
+        public ICommand ConnectCommand { get; set; }
+        
         private FuelClient.Service.FEmployee mSelectedModel = new FuelClient.Service.FEmployee();
 
 
