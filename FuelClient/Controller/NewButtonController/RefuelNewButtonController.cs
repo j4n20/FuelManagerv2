@@ -3,6 +3,8 @@ using FuelClient.Service;
 using FuelClient.ViewModels.NewButtonViewModels;
 using FuelClient.Views.NewButtonViews;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace FuelClient.Controller.NewButtonController
@@ -40,8 +42,9 @@ namespace FuelClient.Controller.NewButtonController
             mView.Close();
         }
 
-        public Refuel AddRefuel()
+        public Refuel AddRefuel(ObservableCollection<Car> cars)
         {
+            mViewModel.CarModels = cars;
             mView.ShowDialog();
             if (isCancelled == false)
             {

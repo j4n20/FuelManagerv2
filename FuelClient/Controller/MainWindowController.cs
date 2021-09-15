@@ -31,6 +31,10 @@ namespace FuelClient.Controller
             mApplication.MainWindow = mView;
 
             RefuelController mHomeViewController = mApplication.Container.Resolve<RefuelController>();
+            mViewModel.CurrentView = mHomeViewController;
+            mViewModel.CurrentView = mHomeViewController.mViewModel;
+            mViewModel.SelectedController = mHomeViewController;
+
             mViewModel.CurrentView = mHomeViewController.mViewModel;
 
             mViewModel.FEmployeeViewCommand = new RelayCommand(ExecuteFEmployeeViewCommand);
@@ -256,12 +260,12 @@ namespace FuelClient.Controller
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return true;
 
-            }/*
-            else if (mViewModel.SelectedController is LiefergebieteController)
-            {
-                LiefergebieteController controller = (LiefergebieteController)mViewModel.SelectedController;
-                return true;
             }
+            else if (mViewModel.SelectedController is RefuelController)
+            {
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
+                return true;
+            }/*
             else if (mViewModel.SelectedController is DriverController)
             {
                 DriverController controller = (DriverController)mViewModel.SelectedController;

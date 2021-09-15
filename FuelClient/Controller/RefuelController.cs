@@ -28,7 +28,14 @@ namespace FuelClient.Controller
             {
                 mViewModel.CarModels.Add(entry.Car);
             }
-
+            foreach (var car in mViewModel.CarModels)
+            {
+                foreach (var refuel in client.GetRefuelById(car))
+                {
+                    mViewModel.RefuelsModels.Add(refuel);
+                    mViewModel.SelectedModel = refuel;
+                }
+            }
             mView.DataContext = mViewModel;
 
         }
@@ -36,16 +43,20 @@ namespace FuelClient.Controller
         public void ExecuteNewCommand()
         {
             RefuelNewButtonController mController = mApplication.Container.Resolve<RefuelNewButtonController>();
-            var result = mController.AddRefuel();
+            var result = mController.AddRefuel(mViewModel.CarModels);
 
             if (result != null)
             {
                 mViewModel.RefuelsModels.Clear();
-                /*foreach (var refuel in client.GetRefuelById())
+                foreach(var car in mViewModel.CarModels)
                 {
-                    mViewModel.RefuelsModels.Add(refuel);
-                    mViewModel.SelectedModel = refuel;
-                }*/
+                    foreach (var refuel in client.GetRefuelById(car))
+                    {
+                        mViewModel.RefuelsModels.Add(refuel);
+                        mViewModel.SelectedModel = refuel;
+                    }
+                }
+                
             }
 
         }
