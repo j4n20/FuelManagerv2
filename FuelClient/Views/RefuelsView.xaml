@@ -37,18 +37,16 @@
                         Name="DatePicker"
                         materialDesign:HintAssist.Hint="Pick Date"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                        Margin="10,10,365,168" 
-                        Height="63"
-                        SelectedDate ="{Binding DateTimeBox}"
-                Visibility="{Binding EditMode, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        Margin="10,10,365,140" 
+                        Height="91"
+                        SelectedDate ="{Binding DateTimeBox}"/>
             <ComboBox
                 Name="CarComboBox"
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                 materialDesign:HintAssist.Hint="Fahrzeug"
                 ItemsSource="{Binding CarModels}"
                 materialDesign:TextFieldAssist.HasClearButton="True"
-                Margin="10,83,365,104"
-                Visibility="{Binding EditMode, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Margin="10,119,365,68"
                 >
                 <ComboBox.SelectedItem>
                     <Binding

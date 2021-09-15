@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
+using FuelClient.Controller.NewButtonController;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
@@ -22,13 +24,29 @@ namespace FuelClient.Controller
             mView = view;
             mViewModel = videoMode;
             mApplication = app;
-            /*foreach (var refuel in client.GetRefuels())
+            foreach (var entry in client.GetEmployeeToCarById(mApplication.Employee))
             {
-                mViewModel.RefuelsModels.Add(refuel);
-                mViewModel.SelectedModel = refuel;
-            }*/
+                mViewModel.CarModels.Add(entry.Car);
+            }
 
             mView.DataContext = mViewModel;
+
+        }
+
+        public void ExecuteNewCommand()
+        {
+            RefuelNewButtonController mController = mApplication.Container.Resolve<RefuelNewButtonController>();
+            var result = mController.AddRefuel();
+
+            if (result != null)
+            {
+                mViewModel.RefuelsModels.Clear();
+                /*foreach (var refuel in client.GetRefuelById())
+                {
+                    mViewModel.RefuelsModels.Add(refuel);
+                    mViewModel.SelectedModel = refuel;
+                }*/
+            }
 
         }
     }

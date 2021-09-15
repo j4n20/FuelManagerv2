@@ -110,6 +110,7 @@
     <Compile Include="Controller\NewButtonController\CarNewButtonController.cs" />
     <Compile Include="Controller\NewButtonController\FEmployeeConnectController.cs" />
     <Compile Include="Controller\NewButtonController\FEmployeeNewButtonController.cs" />
+    <Compile Include="Controller\NewButtonController\RefuelNewButtonController.cs" />
     <Compile Include="Controller\PreisentwicklungController.cs" />
     <Compile Include="Controller\RefuelController.cs" />
     <Compile Include="Controller\VerbrauchController.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="ViewModels\NewButtonViewModels\CarNewButtonViewmodel.cs" />
     <Compile Include="ViewModels\NewButtonViewModels\FEmployeeConnectViewmodel.cs" />
     <Compile Include="ViewModels\NewButtonViewModels\FEmployeeNewButtonViewmodel.cs" />
+    <Compile Include="ViewModels\NewButtonViewModels\RefuelNewButtonViewmodel.cs" />
     <Compile Include="Views\NewButtonViews\CarNewButtonView.xaml.cs">
       <DependentUpon>CarNewButtonView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +158,9 @@
     </Compile>
     <Compile Include="Views\NewButtonViews\FEmployeeNewButtonView.xaml.cs">
       <DependentUpon>FEmployeeNewButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewButtonViews\RefuelNewButtonView.xaml.cs">
+      <DependentUpon>RefuelNewButtonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PreisentwicklungView.xaml.cs">
       <DependentUpon>PreisentwicklungView.xaml</DependentUpon>
@@ -207,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewButtonViews\FEmployeeNewButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewButtonViews\RefuelNewButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

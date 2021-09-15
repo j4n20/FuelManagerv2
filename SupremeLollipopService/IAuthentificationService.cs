@@ -56,6 +56,8 @@ namespace SupremeLollipopService
         List<EmployeeToCarRelation> GetEmployeeToCarById(FEmployee employee);
         [OperationContract]
         List<Car> GetUnconnectedCars();
+        [OperationContract]
+        List<Refuel> GetRefuelById(Car car);
 
 
         // TODO: Hier Dienstvorgänge hinzufügen

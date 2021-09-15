@@ -159,6 +159,15 @@ namespace SupremeLollipopService
             }
         }
 
+        public List<Refuel> GetRefuelById(Car car)
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var result = session.QueryOver<Refuel>().Where(t => t.Car.Id == car.Id).List();
+                return result as List<Refuel>;
+            }
+        }
+
         public List<Car> GetUnconnectedCars()
         {
             using (var session = NHibernateHelper.OpenSession())

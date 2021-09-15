@@ -257,4 +257,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetRefuelById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="car" nillable="true" type="q19:Car" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRefuelByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetRefuelByIdResult" nillable="true" type="q20:ArrayOfRefuel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
