@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels.NewButtonViewModels;
@@ -29,7 +30,7 @@ namespace FuelClient.Controller.NewButtonController
             {
                 mViewModel.CarModel.Add(unconnectedCar);
             }
-
+            
             mViewModel.ConnectCommand = new RelayCommand(ExecuteConnectCommand);
             mViewModel.CancelCommand = new RelayCommand(ExecuteCancelCommand);
         }
@@ -48,6 +49,19 @@ namespace FuelClient.Controller.NewButtonController
             mView.Close();
         }
 
-
+        public Car ConnectCar()
+        {
+            mView.ShowDialog();
+            if (isCancelled == false)
+            {
+                return mViewModel.SelectedModel;
+            }
+            else
+            {
+                MessageBox.Show("Error: Missing input");
+                return null;
+            }
+            
+        }
     }
 }

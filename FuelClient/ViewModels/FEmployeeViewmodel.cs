@@ -35,8 +35,8 @@ namespace FuelClient.ViewModels
             }
         }
 
-        private SelectedCar mCar;
-        public SelectedCar SelectedCarModel
+        private Car mCar;
+        public Car SelectedCarModel
         {
             get { return mCar; }
             set
@@ -86,6 +86,16 @@ namespace FuelClient.ViewModels
             set
             {
                 _setenabled = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _editMode;
+        public bool EditMode
+        {
+            get { return _editMode; }
+            set
+            {
+                _editMode = value;
                 OnPropertyChanged();
             }
         }

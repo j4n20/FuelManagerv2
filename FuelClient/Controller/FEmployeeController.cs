@@ -36,8 +36,8 @@ namespace FuelClient.Controller
             mView.DataContext = mViewModel;
             mViewModel.EmployeeSelectedCommand = new RelayCommand(ExecuteFEmployeeSelectedCommand);
             //mViewModel.PlusCommand = new RelayCommand(ExecutePlusCommand);
-
-            mViewModel.ConnectCommand = new RelayCommand(ExecuteConnectCommand);
+            mViewModel.MinusCommand = new RelayCommand(ExecuteMinusCommand, CanExecuteMinusCommand);
+            mViewModel.PlusCommand = new RelayCommand(ExecuteConnectCommand, CanExecutePlusCommand);
         }
 
         public void ExecuteFEmployeeSelectedCommand(object obj)
@@ -49,7 +49,7 @@ namespace FuelClient.Controller
         {
             mViewModel.Setread = false;
             mViewModel.Setvisible = true;
-
+            mViewModel.EditMode = true;
             mViewModel.CarModels.Clear();
             fEmployee = mViewModel.SelectedModel;
 
@@ -62,9 +62,25 @@ namespace FuelClient.Controller
             }
         }
 
-        public void ExecuteConnectCommand()
+        public void ExecuteConnectCommand(object obj)
         {
             FEmployeeConnectController mController = mApplication.Container.Resolve<FEmployeeConnectController>();
+            var returnedCar = mController.ConnectCar();
+
+            if (returnedCar != null)
+            {
+                EmployeeToCarRelation empToCar = new EmployeeToCarRelation
+                {
+                    Car = returnedCar,
+                    FEmployee = fEmployee
+                };
+                client.AddEmployeeToCar(empToCar);
+                mViewModel.CarModels.Clear();
+                foreach(var entry in client.GetEmployeeToCarById(fEmployee))
+                {
+                    mViewModel.CarModels.Add(entry.Car);
+                }
+            }
         }
 
         public void ExecuteDeleteCommand()
@@ -126,8 +142,53 @@ namespace FuelClient.Controller
                     relationList.Add(relation);
                 }
             }*/
+            
             client.AddUser(fEmployee);
+            mViewModel.EditMode = false;
             //client.AddEmployeeToCar(relationList.ToArray(), fEmployee);
+        }
+        public bool CanExecutePlusCommand(object o)
+        {
+            if (mViewModel.EditMode == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CanExecuteMinusCommand(object o)
+        {
+            if (mViewModel.EditMode == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void ExecuteMinusCommand(object o)
+        {
+            if (mViewModel.SelectedCarModel != null)
+            {
+                var check = client.DeleteEmployeeToCarRelation(mViewModel.SelectedCarModel);
+                if (check == true)
+                {
+                    mViewModel.CarModels.Remove(mViewModel.SelectedCarModel);
+                }
+                else
+                {
+                    MessageBox.Show("There is data connected to this car", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a car", "Error");
+            }
+
         }
     }
 }

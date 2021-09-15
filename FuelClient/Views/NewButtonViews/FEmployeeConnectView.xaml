@@ -16,11 +16,12 @@
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
-                  ItemsSource="{Binding CarModel}">
+                  ItemsSource="{Binding CarModel}"
+                  SelectedItem="{Binding SelectedModel}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding LicensePlate}"/>
-                <DataGridTextColumn Width="1*" Header="Hersteller" Binding="{Binding Vendor}"/>
-                <DataGridTextColumn Width="1*" Header="Model" Binding="{Binding Model}"/>
+                <DataGridTextColumn Width="1*" Header="Kennzeichen" Binding="{Binding LicensePlate}" x:Name="LicensePlate"/>
+                <DataGridTextColumn Width="1*" Header="Hersteller" Binding="{Binding Vendor}" x:Name="Vendor"/>
+                <DataGridTextColumn Width="1*" Header="Model" Binding="{Binding Model}" x:Name="Model"/>
 
             </DataGrid.Columns>
         </DataGrid>

@@ -769,10 +769,10 @@ namespace FuelClient.Service {
         System.Threading.Tasks.Task<bool> DeleteRefuelAsync(int RefuelId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelation", ReplyAction="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelationResponse")]
-        bool DeleteEmployeeToCarRelation(FuelClient.Service.FEmployee employee);
+        bool DeleteEmployeeToCarRelation(FuelClient.Service.Car car);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelation", ReplyAction="http://tempuri.org/IAuthentificationService/DeleteEmployeeToCarRelationResponse")]
-        System.Threading.Tasks.Task<bool> DeleteEmployeeToCarRelationAsync(FuelClient.Service.FEmployee employee);
+        System.Threading.Tasks.Task<bool> DeleteEmployeeToCarRelationAsync(FuelClient.Service.Car car);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/AddUser", ReplyAction="http://tempuri.org/IAuthentificationService/AddUserResponse")]
         bool AddUser(FuelClient.Service.FEmployee user);
@@ -793,10 +793,10 @@ namespace FuelClient.Service {
         System.Threading.Tasks.Task<bool> AddRefuelAsync(FuelClient.Service.Refuel refuel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/AddEmployeeToCar", ReplyAction="http://tempuri.org/IAuthentificationService/AddEmployeeToCarResponse")]
-        bool AddEmployeeToCar(FuelClient.Service.EmployeeToCarRelation[] relations, FuelClient.Service.FEmployee employee);
+        bool AddEmployeeToCar(FuelClient.Service.EmployeeToCarRelation relation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/AddEmployeeToCar", ReplyAction="http://tempuri.org/IAuthentificationService/AddEmployeeToCarResponse")]
-        System.Threading.Tasks.Task<bool> AddEmployeeToCarAsync(FuelClient.Service.EmployeeToCarRelation[] relations, FuelClient.Service.FEmployee employee);
+        System.Threading.Tasks.Task<bool> AddEmployeeToCarAsync(FuelClient.Service.EmployeeToCarRelation relation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetVerbrauch", ReplyAction="http://tempuri.org/IAuthentificationService/GetVerbrauchResponse")]
         FuelClient.Service.Verbrauch GetVerbrauch();
@@ -930,12 +930,12 @@ namespace FuelClient.Service {
             return base.Channel.DeleteRefuelAsync(RefuelId);
         }
         
-        public bool DeleteEmployeeToCarRelation(FuelClient.Service.FEmployee employee) {
-            return base.Channel.DeleteEmployeeToCarRelation(employee);
+        public bool DeleteEmployeeToCarRelation(FuelClient.Service.Car car) {
+            return base.Channel.DeleteEmployeeToCarRelation(car);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteEmployeeToCarRelationAsync(FuelClient.Service.FEmployee employee) {
-            return base.Channel.DeleteEmployeeToCarRelationAsync(employee);
+        public System.Threading.Tasks.Task<bool> DeleteEmployeeToCarRelationAsync(FuelClient.Service.Car car) {
+            return base.Channel.DeleteEmployeeToCarRelationAsync(car);
         }
         
         public bool AddUser(FuelClient.Service.FEmployee user) {
@@ -962,12 +962,12 @@ namespace FuelClient.Service {
             return base.Channel.AddRefuelAsync(refuel);
         }
         
-        public bool AddEmployeeToCar(FuelClient.Service.EmployeeToCarRelation[] relations, FuelClient.Service.FEmployee employee) {
-            return base.Channel.AddEmployeeToCar(relations, employee);
+        public bool AddEmployeeToCar(FuelClient.Service.EmployeeToCarRelation relation) {
+            return base.Channel.AddEmployeeToCar(relation);
         }
         
-        public System.Threading.Tasks.Task<bool> AddEmployeeToCarAsync(FuelClient.Service.EmployeeToCarRelation[] relations, FuelClient.Service.FEmployee employee) {
-            return base.Channel.AddEmployeeToCarAsync(relations, employee);
+        public System.Threading.Tasks.Task<bool> AddEmployeeToCarAsync(FuelClient.Service.EmployeeToCarRelation relation) {
+            return base.Channel.AddEmployeeToCarAsync(relation);
         }
         
         public FuelClient.Service.Verbrauch GetVerbrauch() {

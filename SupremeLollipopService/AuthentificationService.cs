@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SupremeLollipopService.Zusammensetzungen.Enums;
-using SupremeLollipopService.Zusammensetzungen.Verbrauch;
 using SupremeLollipopService.Zusammensetzungen.Preisentwicklung;
+using SupremeLollipopService.Zusammensetzungen.Verbrauch;
 
 
 namespace SupremeLollipopService
@@ -15,7 +15,8 @@ namespace SupremeLollipopService
             return string.Format("You entered: {0}", value);
         }*/
 
-        public Verbrauch GetVerbrauch() {
+        public Verbrauch GetVerbrauch()
+        {
             return null;
         }
 
@@ -163,13 +164,19 @@ namespace SupremeLollipopService
             using (var session = NHibernateHelper.OpenSession())
             {
                 var employeeToCarRelations = session.QueryOver<EmployeeToCarRelation>().List();
+                List<Car> usedCars = new List<Car>();
+                foreach (var entry in employeeToCarRelations)
+                {
+                    usedCars.Add(entry.Car);
+                }
                 var cars = session.QueryOver<Car>().List();
                 List<Car> unconnectedCars = new List<Car>();
-                foreach(var employeeToCarRelation in employeeToCarRelations)
+
+                foreach (var car in cars)
                 {
-                    if (!cars.Contains(employeeToCarRelation.Car))
+                    if (!usedCars.Contains(car))
                     {
-                        unconnectedCars.Add(employeeToCarRelation.Car);
+                        unconnectedCars.Add(car);
                     }
                 }
                 return unconnectedCars;
@@ -404,36 +411,63 @@ namespace SupremeLollipopService
             }
         }
 
-        public bool AddEmployeeToCar(List<EmployeeToCarRelation> relations, FEmployee employee)
+        public bool AddEmployeeToCar(EmployeeToCarRelation relation)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            try
             {
-                using (var transaction = session.BeginTransaction())
+                using (var session = NHibernateHelper.OpenSession())
                 {
-
-                    try
+                    using (var transaction = session.BeginTransaction())
                     {
-                        var deleteList = session.QueryOver<EmployeeToCarRelation>().Where(x => x.FEmployee.Id == employee.Id).List();
-                        foreach (var x in deleteList)
+                        var checkedEmpToCar = session.QueryOver<EmployeeToCarRelation>().Where(x => x.Id == relation.Id).SingleOrDefault();
+                        if (checkedEmpToCar != null)
                         {
-                            session.Delete(x);
+                            if (checkedEmpToCar.Id != 0)
+                            {
+                                try
+                                {
+
+                                    checkedEmpToCar.Car = relation.Car;
+                                    checkedEmpToCar.FEmployee = relation.FEmployee;
+
+                                    checkedEmpToCar.Id = relation.Id;
+
+                                    session.SaveOrUpdate(checkedEmpToCar);
+                                    transaction.Commit();
+                                    return true;
+
+                                }
+
+                                catch
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+
+                            session.SaveOrUpdate(relation);
+                            transaction.Commit();
+                            return true;
 
                         }
-                        transaction.Commit();
-                        session.Clear();
-                        relations.ForEach(a => session.Save(a));
-                        return true;
-                    }
 
-                    catch
-                    {
-                        return false;
                     }
                 }
             }
+            catch (NHibernate.Exceptions.GenericADOException)
+            {
+                return false;
+            }
+
         }
 
-        public bool DeleteEmployeeToCarRelation(FEmployee employee)
+        public bool DeleteEmployeeToCarRelation(Car car)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
@@ -442,7 +476,7 @@ namespace SupremeLollipopService
                     try
                     {
                         var returnList = session.QueryOver<EmployeeToCarRelation>()
-                      .Where(t => t.FEmployee.Id == employee.Id).List();
+                      .Where(t => t.Car.Id == car.Id).List();
                         foreach (var relation in returnList)
                         {
                             session.Delete(relation);

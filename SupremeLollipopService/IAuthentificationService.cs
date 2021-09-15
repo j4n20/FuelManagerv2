@@ -39,7 +39,7 @@ namespace SupremeLollipopService
         [OperationContract]
         bool DeleteRefuel(int RefuelId);
         [OperationContract]
-        bool DeleteEmployeeToCarRelation(FEmployee employee);
+        bool DeleteEmployeeToCarRelation(Car car);
         [OperationContract]
         bool AddUser(FEmployee user);
         [OperationContract]
@@ -47,7 +47,7 @@ namespace SupremeLollipopService
         [OperationContract]
         bool AddRefuel(Refuel refuel);
         [OperationContract]
-        bool AddEmployeeToCar(List<EmployeeToCarRelation> relations, FEmployee employee);
+        bool AddEmployeeToCar(EmployeeToCarRelation relation);
         [OperationContract]
         Verbrauch GetVerbrauch();
         [OperationContract]
