@@ -25,6 +25,7 @@ namespace FuelClient.Controller
             mView = view;
             mViewModel = videoMode;
             mApplication = app;
+            
             foreach (var entry in client.GetEmployeeToCarById(mApplication.Employee))
             {
                 mViewModel.CarModels.Add(entry.Car);
@@ -37,8 +38,9 @@ namespace FuelClient.Controller
                     mViewModel.SelectedModel = refuel;
                 }
             }
-            mView.DataContext = mViewModel;
             
+            mView.DataContext = mViewModel;
+            mViewModel.CarBox = mViewModel.CarModels.First();
         }
 
         public void ExecuteEditCommand()

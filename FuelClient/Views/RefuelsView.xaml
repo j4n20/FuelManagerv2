@@ -4,10 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FuelClient.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:RefuelsViewmodel}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase" d:DataContext="{d:DesignInstance Type=viewmodels:RefuelsViewmodel}"
              mc:Ignorable="d" 
              d:DesignHeight="451" 
              d:DesignWidth="711">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="cvs" Source="{Binding RefuelsModels}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Date" Direction="Descending" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -19,7 +26,7 @@
         <Label Content="Tanken" FontWeight="Bold" Background="#FFF3CA20"/>
         <DataGrid Grid.Row="1"
                   x:Name="TankenDataGrid"
-                  ItemsSource="{Binding RefuelsModels}"
+                  ItemsSource="{Binding Source={StaticResource cvs}}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
@@ -53,6 +60,7 @@
                 ItemsSource="{Binding CarModels}"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Margin="10,127,365,60" RenderTransformOrigin="0.487,1.014"
+                
                 >
                 <ComboBox.SelectedItem>
                     <Binding
