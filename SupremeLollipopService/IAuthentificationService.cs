@@ -48,8 +48,8 @@ namespace SupremeLollipopService
         bool AddRefuel(Refuel refuel);
         [OperationContract]
         bool AddEmployeeToCar(EmployeeToCarRelation relation);
-        [OperationContract]
-        Verbrauch GetVerbrauch();
+        /*[OperationContract]
+        Verbrauch GetVerbrauch(Car car);*/
         [OperationContract]
         Preisentwicklung GetPreisentwicklung();
         [OperationContract]

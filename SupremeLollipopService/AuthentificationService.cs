@@ -15,12 +15,20 @@ namespace SupremeLollipopService
             return string.Format("You entered: {0}", value);
         }*/
 
-        public Verbrauch GetVerbrauch()
+        /*public Verbrauch GetVerbrauch(Car car)
         {
-            return null;
-        }
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var returnRefuel = session.QueryOver<Refuel>().Where(t => t.Car.Id == car.Id).List();
+                foreach(var entry in returnRefuel)
+                {
+                    
+                }
+            }
+        }*/
 
-        public Preisentwicklung GetPreisentwicklung()
+
+            public Preisentwicklung GetPreisentwicklung()
         {
             return null;
         }

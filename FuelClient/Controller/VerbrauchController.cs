@@ -31,5 +31,14 @@ namespace FuelClient.Controller
             mView.DataContext = mViewModel;
 
         }
+
+        /*public void GetVerbrauch()
+        {
+            foreach (var bestseller in client.GetVerbrauch())
+            {
+                mViewModel.VerbrauchModel.Add(bestseller);
+            }
+            
+        }*/
     }
 }
