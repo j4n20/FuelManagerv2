@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Autofac;
 using FuelClient.Controller.NewButtonController;
 using FuelClient.Service;
@@ -40,6 +41,12 @@ namespace FuelClient.Controller
 
         }
 
+        public void ExecuteEditCommand()
+        {
+            mViewModel.Setread = false;
+            //mViewModel.CarBox = mViewModel.SelectedModel.Car.LicensePlate;
+        }
+
         public void ExecuteNewCommand()
         {
             RefuelNewButtonController mController = mApplication.Container.Resolve<RefuelNewButtonController>();
@@ -48,7 +55,7 @@ namespace FuelClient.Controller
             if (result != null)
             {
                 mViewModel.RefuelsModels.Clear();
-                foreach(var car in mViewModel.CarModels)
+                foreach (var car in mViewModel.CarModels)
                 {
                     foreach (var refuel in client.GetRefuelById(car))
                     {
@@ -56,9 +63,43 @@ namespace FuelClient.Controller
                         mViewModel.SelectedModel = refuel;
                     }
                 }
-                
             }
 
         }
+
+        public void ExecuteDeleteCommand()
+        {
+            if (mViewModel.SelectedModel != null)
+            {
+
+                var check = client.DeleteRefuel(mViewModel.SelectedModel.Id);
+                if (check == false)
+                {
+                    //mView.DeletionCheck.Content = "Error";
+                    MessageBox.Show("Error: There is data connected to this employee");
+                }
+                else
+                {
+                    mViewModel.RefuelsModels.Remove(mViewModel.SelectedModel);
+
+                }
+            }
+        }
+
+        public void ExecuteSaveCommand()
+        {
+            Refuel refuel = new Refuel
+            {
+                Car = (Car)mView.CarComboBox.SelectedItem,
+                Date = (DateTime)mView.DatePicker.SelectedDate,
+                Mileage = mView.MileageTextBox.Text,
+                Amount = (float)Decimal.Parse(mView.AmountTextBox.Text),
+                Price = (float)Decimal.Parse(mView.PriceTextBox.Text),
+                Id = mViewModel.SelectedModel.Id
+            };
+            
+        }
+
+        
     }
 }

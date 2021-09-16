@@ -116,11 +116,11 @@ namespace FuelClient.Controller
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteEditCommand();
             }
-            /*else if (mViewModel.SelectedController is DriverController)
+            else if (mViewModel.SelectedController is RefuelController)
             {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
                 controller.ExecuteEditCommand();
-            }
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;
@@ -151,12 +151,12 @@ namespace FuelClient.Controller
             {
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteSaveCommand();
-            }/*
-            else if (mViewModel.SelectedController is DriverController)
-            {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
-                controller.ExecuteSaveCommand();
             }
+            else if (mViewModel.SelectedController is RefuelController)
+            {
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
+                controller.ExecuteSaveCommand();
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;
@@ -187,12 +187,12 @@ namespace FuelClient.Controller
             {
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 controller.ExecuteDeleteCommand();
-            }/*
-            else if (mViewModel.SelectedController is DriverController)
-            {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
-                controller.ExecuteDeleteCommand(); //TODO: implementieren Biteeee
             }
+            else if (mViewModel.SelectedController is RefuelController)
+            {
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
+                controller.ExecuteDeleteCommand(); 
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;
@@ -223,12 +223,12 @@ namespace FuelClient.Controller
             {
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
-            }/*
-            else if (mViewModel.SelectedController is DriverController)
-            {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
-                return controller.mViewModel.SelectedModel != null ? true : false;
             }
+            else if (mViewModel.SelectedController is RefuelController)
+            {
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
+                return controller.mViewModel.SelectedModel != null ? true : false;
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;
@@ -302,11 +302,11 @@ namespace FuelClient.Controller
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
             }
-            /*else if (mViewModel.SelectedController is DriverController)
+            else if (mViewModel.SelectedController is RefuelController)
             {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
-            }
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;
@@ -337,12 +337,12 @@ namespace FuelClient.Controller
             {
                 FEmployeeController controller = (FEmployeeController)mViewModel.SelectedController;
                 return controller.mViewModel.SelectedModel != null ? true : false;
-            }/*
-            else if (mViewModel.SelectedController is DriverController)
-            {
-                DriverController controller = (DriverController)mViewModel.SelectedController;
-                return controller.mViewModel.SelectedModel != null ? true : false;
             }
+            else if (mViewModel.SelectedController is RefuelController)
+            {
+                RefuelController controller = (RefuelController)mViewModel.SelectedController;
+                return controller.mViewModel.SelectedModel != null ? true : false;
+            }/*
             else if (mViewModel.SelectedController is ArticleController)
             {
                 ArticleController controller = (ArticleController)mViewModel.SelectedController;

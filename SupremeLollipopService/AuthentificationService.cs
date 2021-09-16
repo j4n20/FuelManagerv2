@@ -261,7 +261,7 @@ namespace SupremeLollipopService
                 {
                     try
                     {
-                        var returnList = session.QueryOver<Car>()
+                        var returnList = session.QueryOver<Refuel>()
                       .Where(t => t.Id == RefuelId).List()[0];
                         session.Delete(returnList);
                         transaction.Commit();

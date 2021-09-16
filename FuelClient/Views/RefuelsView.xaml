@@ -18,13 +18,14 @@
 
         <Label Content="Tanken" FontWeight="Bold" Background="#FFF3CA20"/>
         <DataGrid Grid.Row="1"
+                  x:Name="DataGrid"
                   ItemsSource="{Binding RefuelsModels}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
                   SelectedItem="{Binding SelectedModel}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Header="Datum" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTextColumn Width="1*" Header="Datum" Binding="{Binding Date}" SortDirection="Descending"></DataGridTextColumn>
                 <DataGridTextColumn Width="3*" Header="Fahrzeug" Binding="{Binding Car.LicensePlate}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1*" Header="Preis" Binding="{Binding Price}"></DataGridTextColumn>
             </DataGrid.Columns>
@@ -36,17 +37,22 @@
             <DatePicker
                         Name="DatePicker"
                         materialDesign:HintAssist.Hint="Pick Date"
-                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                        Margin="10,10,365,140" 
-                        Height="91"
-                        SelectedDate ="{Binding DateTimeBox}"/>
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        Margin="10,37,365,142" 
+                        Height="62"
+                        SelectedDate ="{Binding DateTimeBox}" RenderTransformOrigin="0.501,0.475"/>
+            <Line
+                X1="10" Y1="100"
+                X2="320" Y2="100"
+                Stroke="Black"
+                StrokeThickness="2"/>
             <ComboBox
                 Name="CarComboBox"
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                 materialDesign:HintAssist.Hint="Fahrzeug"
                 ItemsSource="{Binding CarModels}"
                 materialDesign:TextFieldAssist.HasClearButton="True"
-                Margin="10,119,365,68"
+                Margin="10,127,365,60" RenderTransformOrigin="0.487,1.014"
                 >
                 <ComboBox.SelectedItem>
                     <Binding
@@ -72,19 +78,19 @@
             </ComboBox>
             <TextBox
                 x:Name="MileageTextBox"
-                materialDesign:HintAssist.Hint="Kilometerstand" Margin="365,10,10,194"
+                materialDesign:HintAssist.Hint="Kilometerstand" Margin="365,37,10,167"
                 Text="{Binding SelectedModel.Mileage}"
                 FontSize="13"
                 IsReadOnly="{Binding Setread}"/>
             <TextBox
                 x:Name="AmountTextBox"
-                materialDesign:HintAssist.Hint="Liter (getankt)" Margin="365,65,10,140"
+                materialDesign:HintAssist.Hint="Liter (getankt)" Margin="365,92,10,113"
                 Text="{Binding SelectedModel.Amount}"
                 FontSize="13"
                 IsReadOnly="{Binding Setread}"/>
             <TextBox
                 x:Name="PriceTextBox"
-                materialDesign:HintAssist.Hint="Preis (getankt)" Margin="365,119,10,87"
+                materialDesign:HintAssist.Hint="Preis (getankt)" Margin="365,146,10,60"
                 Text="{Binding SelectedModel.Price}"
                 FontSize="13"
                 IsReadOnly="{Binding Setread}"/>
