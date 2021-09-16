@@ -38,7 +38,7 @@ namespace FuelClient.Controller
                 }
             }
             mView.DataContext = mViewModel;
-
+            
         }
 
         public void ExecuteEditCommand()

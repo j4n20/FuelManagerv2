@@ -18,7 +18,7 @@
 
         <Label Content="Tanken" FontWeight="Bold" Background="#FFF3CA20"/>
         <DataGrid Grid.Row="1"
-                  x:Name="DataGrid"
+                  x:Name="TankenDataGrid"
                   ItemsSource="{Binding RefuelsModels}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
