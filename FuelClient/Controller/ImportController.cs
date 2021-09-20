@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
+using Microsoft.Win32;
 
 namespace FuelClient.Controller
 {
@@ -29,6 +31,13 @@ namespace FuelClient.Controller
             }*/
 
             mView.DataContext = mViewModel;
+
+            mViewModel.ImportCommand = new RelayCommand(ImportCommand);
+        }
+
+        public void ImportCommand(object o)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
         }
     }
