@@ -51,7 +51,7 @@ namespace SupremeLollipopService
         [OperationContract]
         List<Verbrauch> GetVerbrauch(Car car);
         [OperationContract]
-        Preisentwicklung GetPreisentwicklung();
+        List <Verbrauch> GetPreisentwicklung(Car car);
         [OperationContract]
         List<EmployeeToCarRelation> GetEmployeeToCarById(FEmployee employee);
         [OperationContract]

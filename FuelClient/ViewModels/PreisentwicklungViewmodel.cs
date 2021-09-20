@@ -14,7 +14,7 @@ namespace FuelClient.ViewModels
     {
         public ICommand RefreshCommand { get; set; }
         public ObservableCollection<FuelClient.Service.Car> CarModels { get; set; } = new ObservableCollection<FuelClient.Service.Car>();
-        public ObservableCollection<Preisentwicklung> PreisentwicklungModel { get; set; } = new ObservableCollection<Preisentwicklung>();
+        public ObservableCollection<Verbrauch> PreisentwicklungModel { get; set; } = new ObservableCollection<Verbrauch>();
 
         private bool _editMode;
         public bool EditMode
@@ -23,6 +23,16 @@ namespace FuelClient.ViewModels
             set
             {
                 _editMode = value;
+                OnPropertyChanged();
+            }
+        }
+        private Car _selectedCar;
+        public Car SelectedCar
+        {
+            get { return _selectedCar; }
+            set
+            {
+                _selectedCar = value;
                 OnPropertyChanged();
             }
         }

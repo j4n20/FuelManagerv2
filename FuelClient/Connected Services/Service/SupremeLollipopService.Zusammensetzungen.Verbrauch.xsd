@@ -9,11 +9,12 @@
   <xs:element name="ArrayOfVerbrauch" nillable="true" type="tns:ArrayOfVerbrauch" />
   <xs:complexType name="Verbrauch">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AveragePreis" type="xs:float" />
       <xs:element minOccurs="0" name="AverageVerbrauch" type="xs:float" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="Car" nillable="true" type="q1:Car" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FirstMileage" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastMileage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstMileage" type="xs:float" />
+      <xs:element minOccurs="0" name="LastMileage" type="xs:float" />
       <xs:element minOccurs="0" name="Month" type="xs:int" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="Refuels" nillable="true" type="q2:Refuel" />
       <xs:element minOccurs="0" name="Year" type="xs:int" />

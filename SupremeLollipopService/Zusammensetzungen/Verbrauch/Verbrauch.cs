@@ -25,6 +25,8 @@ namespace SupremeLollipopService.Zusammensetzungen.Verbrauch
         [DataMember]
         public float AverageVerbrauch { set; get; }
         [DataMember]
+        public float AveragePreis { set; get; }
+        [DataMember]
         public string Date {
             get
             {

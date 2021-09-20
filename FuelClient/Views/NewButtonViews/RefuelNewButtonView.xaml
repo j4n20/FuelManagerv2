@@ -25,7 +25,7 @@
                         />
         <ComboBox
                 Name="CarComboBox"
-                SelectedDate="{x:Static sys:DateTime.Now}"
+                
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                 materialDesign:HintAssist.Hint="Fahrzeug"
                 ItemsSource="{Binding CarModels}"

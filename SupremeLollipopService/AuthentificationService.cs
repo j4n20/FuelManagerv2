@@ -26,6 +26,7 @@ namespace SupremeLollipopService
                 {
                     Year = g.Key.Year,
                     Month = g.Key.Month,
+                    Car = car,
                     LastMileage = float.Parse(g.Max(i => i.Mileage)),
                     FirstMileage = float.Parse(g.Min(i => i.Mileage)),
                     AverageVerbrauch = g.Sum(i => i.Amount) / (float.Parse(g.Max(i => i.Mileage)) - float.Parse(g.Min(i => i.Mileage))) * 100
@@ -35,9 +36,21 @@ namespace SupremeLollipopService
         }
 
 
-            public Preisentwicklung GetPreisentwicklung()
+            public List<Verbrauch> GetPreisentwicklung(Car car)
         {
-            return null;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                //x => new {x.OrderDate.Year, x.OrderDate.Month}
+
+                return session.Query<Refuel>().Where(x => x.Car.Id == car.Id).GroupBy(x => new { x.Date.Year, x.Date.Month }).Select(g => new Verbrauch()
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    Car = car,
+                    AveragePreis = g.Sum(i => i.Price) / g.Sum(i => i.Amount)
+                    // i.Mileage.LastOrDefault(y => y.Equals() - i.Mileage.FirstOrDefault())
+                }).OrderByDescending(g => g.Month).ToList();
+            }
         }
 
         public FEmployee CheckCredentials(FEmployee user)

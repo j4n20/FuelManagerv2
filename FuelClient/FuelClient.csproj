@@ -262,9 +262,6 @@
     <None Include="Connected Services\Service\FuelClient.Service.PasswordChangeEnumPassword.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Service\FuelClient.Service.Preisentwicklung.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\Service\FuelClient.Service.Refuel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -282,9 +279,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Service\SupremeLollipopService.Zusammensetzungen.Enums.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Service\SupremeLollipopService.Zusammensetzungen.Preisentwicklung.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Service\SupremeLollipopService.Zusammensetzungen.Verbrauch.xsd">

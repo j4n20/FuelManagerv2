@@ -28,7 +28,6 @@
     <MetadataFile FileName="SupremeLollipopService.xsd" MetadataType="Schema" ID="9c0dbf46-0a35-4dd7-b1e9-fe43fcdd687a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SupremeLollipopService/AuthentificationService/mex" />
     <MetadataFile FileName="SupremeLollipopService.Zusammensetzungen.Enums.xsd" MetadataType="Schema" ID="ddb129dc-5c8c-41e1-be1c-09350e8205b0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SupremeLollipopService/AuthentificationService/mex" />
     <MetadataFile FileName="SupremeLollipopService.Zusammensetzungen.Verbrauch.xsd" MetadataType="Schema" ID="6c208378-6b4b-49cf-bc4f-45cd20102ed5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SupremeLollipopService/AuthentificationService/mex" />
-    <MetadataFile FileName="SupremeLollipopService.Zusammensetzungen.Preisentwicklung.xsd" MetadataType="Schema" ID="29c1b907-83a4-4a47-9e4e-91ffeb4681b4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SupremeLollipopService/AuthentificationService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
