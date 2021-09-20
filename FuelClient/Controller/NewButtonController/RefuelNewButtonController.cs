@@ -55,7 +55,7 @@ namespace FuelClient.Controller.NewButtonController
                         Price = (float)Decimal.Parse(mView.Preis.Text),
                         Mileage = mView.Kilometerstand.Text,
                         Amount = (float)Decimal.Parse(mView.Liter.Text),
-                        Date = (DateTime)mView.DatePicker.SelectedDate,
+                        Date = (DateTime)mView.DatePicker1.SelectedDate,
                         Car = (Car)mView.CarComboBox.SelectedItem
                     };
                     

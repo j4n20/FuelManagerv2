@@ -16,7 +16,7 @@
         <Label Content="Tanken:" FontSize="15" FontWeight="Bold" Margin="10,10,258.4,457"/>
 
         <DatePicker
-                        Name="DatePicker"
+                        Name="DatePicker1"
                         materialDesign:HintAssist.Hint="Pick Date"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
                         SelectedDate="{x:Static sys:DateTime.Now}"
@@ -25,6 +25,7 @@
                         />
         <ComboBox
                 Name="CarComboBox"
+                SelectedDate="{x:Static sys:DateTime.Now}"
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                 materialDesign:HintAssist.Hint="Fahrzeug"
                 ItemsSource="{Binding CarModels}"
