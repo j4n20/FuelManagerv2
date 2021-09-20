@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
@@ -22,23 +23,23 @@ namespace FuelClient.Controller
             mView = view;
             mViewModel = videoMode;
             mApplication = app;
-            /*foreach (var area in client.GetCars())
+            foreach (var entry in client.GetEmployeeToCarById(mApplication.Employee))
             {
-                mViewModel.Models.Add(area);
-                mViewModel.SelectedModel = area;
-            }*/
+                mViewModel.CarModels.Add(entry.Car);
+            }
 
             mView.DataContext = mViewModel;
+            mViewModel.RefreshCommand = new RelayCommand(GetVerbrauch);
 
         }
 
-        /*public void GetVerbrauch()
+        public void GetVerbrauch(object o)
         {
-            foreach (var bestseller in client.GetVerbrauch())
+            foreach (var verbrauch in client.GetVerbrauch(mViewModel.SelectedCar))
             {
-                mViewModel.VerbrauchModel.Add(bestseller);
+                mViewModel.VerbrauchModel.Add(verbrauch);
             }
             
-        }*/
+        }
     }
 }

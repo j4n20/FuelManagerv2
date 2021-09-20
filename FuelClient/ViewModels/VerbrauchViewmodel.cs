@@ -26,5 +26,16 @@ namespace FuelClient.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private Car _selectedCar;
+        public Car SelectedCar
+        {
+            get { return _selectedCar; }
+            set
+            {
+                _selectedCar = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

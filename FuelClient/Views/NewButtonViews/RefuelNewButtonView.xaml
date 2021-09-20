@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FuelClient.Views.NewButtonViews"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:viewmodels="clr-namespace:FuelClient.ViewModels.NewButtonViewModels"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:my="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         d:DataContext="{d:DesignInstance Type=viewmodels:RefuelNewButtonViewmodel}"
         mc:Ignorable="d"
         Title="Kunde hinzufügen" Height="500" Width="500"
@@ -13,10 +14,12 @@
         ResizeMode="NoResize">
     <Grid Background="White" Margin="0,0,-0.4,0">
         <Label Content="Tanken:" FontSize="15" FontWeight="Bold" Margin="10,10,258.4,457"/>
+
         <DatePicker
                         Name="DatePicker"
                         materialDesign:HintAssist.Hint="Pick Date"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                        SelectedDate="{x:Static sys:DateTime.Now}"
                         Margin="28,48,168.4,361" 
                         Height="91"
                         />

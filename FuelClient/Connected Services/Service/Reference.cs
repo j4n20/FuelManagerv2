@@ -548,13 +548,28 @@ namespace FuelClient.Service {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double AveragePriceField;
+        private float AverageVerbrauchField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FuelClient.Service.Car CarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstMileageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastMileageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MonthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FuelClient.Service.Refuel RefuelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int YearField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -567,14 +582,14 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double AveragePrice {
+        public float AverageVerbrauch {
             get {
-                return this.AveragePriceField;
+                return this.AverageVerbrauchField;
             }
             set {
-                if ((this.AveragePriceField.Equals(value) != true)) {
-                    this.AveragePriceField = value;
-                    this.RaisePropertyChanged("AveragePrice");
+                if ((this.AverageVerbrauchField.Equals(value) != true)) {
+                    this.AverageVerbrauchField = value;
+                    this.RaisePropertyChanged("AverageVerbrauch");
                 }
             }
         }
@@ -593,6 +608,58 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateField, value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstMileage {
+            get {
+                return this.FirstMileageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstMileageField, value) != true)) {
+                    this.FirstMileageField = value;
+                    this.RaisePropertyChanged("FirstMileage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastMileage {
+            get {
+                return this.LastMileageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastMileageField, value) != true)) {
+                    this.LastMileageField = value;
+                    this.RaisePropertyChanged("LastMileage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Month {
+            get {
+                return this.MonthField;
+            }
+            set {
+                if ((this.MonthField.Equals(value) != true)) {
+                    this.MonthField = value;
+                    this.RaisePropertyChanged("Month");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public FuelClient.Service.Refuel Refuels {
             get {
                 return this.RefuelsField;
@@ -601,6 +668,19 @@ namespace FuelClient.Service {
                 if ((object.ReferenceEquals(this.RefuelsField, value) != true)) {
                     this.RefuelsField = value;
                     this.RaisePropertyChanged("Refuels");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Year {
+            get {
+                return this.YearField;
+            }
+            set {
+                if ((this.YearField.Equals(value) != true)) {
+                    this.YearField = value;
+                    this.RaisePropertyChanged("Year");
                 }
             }
         }
@@ -743,6 +823,7 @@ namespace FuelClient.Service {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.EmployeeToCarRelation[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.EmployeeToCarRelation))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.PasswordChangeEnumPassword))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Verbrauch[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Verbrauch))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FuelClient.Service.Preisentwicklung))]
         void SaveOrUpdate(object o);
@@ -799,10 +880,10 @@ namespace FuelClient.Service {
         System.Threading.Tasks.Task<bool> AddEmployeeToCarAsync(FuelClient.Service.EmployeeToCarRelation relation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetVerbrauch", ReplyAction="http://tempuri.org/IAuthentificationService/GetVerbrauchResponse")]
-        FuelClient.Service.Verbrauch GetVerbrauch();
+        FuelClient.Service.Verbrauch[] GetVerbrauch(FuelClient.Service.Car car);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetVerbrauch", ReplyAction="http://tempuri.org/IAuthentificationService/GetVerbrauchResponse")]
-        System.Threading.Tasks.Task<FuelClient.Service.Verbrauch> GetVerbrauchAsync();
+        System.Threading.Tasks.Task<FuelClient.Service.Verbrauch[]> GetVerbrauchAsync(FuelClient.Service.Car car);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetPreisentwicklung", ReplyAction="http://tempuri.org/IAuthentificationService/GetPreisentwicklungResponse")]
         FuelClient.Service.Preisentwicklung GetPreisentwicklung();
@@ -976,12 +1057,12 @@ namespace FuelClient.Service {
             return base.Channel.AddEmployeeToCarAsync(relation);
         }
         
-        public FuelClient.Service.Verbrauch GetVerbrauch() {
-            return base.Channel.GetVerbrauch();
+        public FuelClient.Service.Verbrauch[] GetVerbrauch(FuelClient.Service.Car car) {
+            return base.Channel.GetVerbrauch(car);
         }
         
-        public System.Threading.Tasks.Task<FuelClient.Service.Verbrauch> GetVerbrauchAsync() {
-            return base.Channel.GetVerbrauchAsync();
+        public System.Threading.Tasks.Task<FuelClient.Service.Verbrauch[]> GetVerbrauchAsync(FuelClient.Service.Car car) {
+            return base.Channel.GetVerbrauchAsync(car);
         }
         
         public FuelClient.Service.Preisentwicklung GetPreisentwicklung() {

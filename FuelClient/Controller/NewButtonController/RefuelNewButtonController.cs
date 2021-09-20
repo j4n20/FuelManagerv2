@@ -58,6 +58,7 @@ namespace FuelClient.Controller.NewButtonController
                         Date = (DateTime)mView.DatePicker.SelectedDate,
                         Car = (Car)mView.CarComboBox.SelectedItem
                     };
+                    
                 }
                 catch (FormatException)
                 {

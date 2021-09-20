@@ -209,13 +209,15 @@
   </xs:element>
   <xs:element name="GetVerbrauch">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="car" nillable="true" type="q14:Car" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetVerbrauchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Verbrauch" minOccurs="0" name="GetVerbrauchResult" nillable="true" type="q14:Verbrauch" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Verbrauch" minOccurs="0" name="GetVerbrauchResult" nillable="true" type="q15:ArrayOfVerbrauch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -227,21 +229,21 @@
   <xs:element name="GetPreisentwicklungResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Preisentwicklung" minOccurs="0" name="GetPreisentwicklungResult" nillable="true" type="q15:Preisentwicklung" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SupremeLollipopService.Zusammensetzungen.Preisentwicklung" minOccurs="0" name="GetPreisentwicklungResult" nillable="true" type="q16:Preisentwicklung" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeToCarById">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="employee" nillable="true" type="q16:FEmployee" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="employee" nillable="true" type="q17:FEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeToCarByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetEmployeeToCarByIdResult" nillable="true" type="q17:ArrayOfEmployeeToCarRelation" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetEmployeeToCarByIdResult" nillable="true" type="q18:ArrayOfEmployeeToCarRelation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -253,21 +255,21 @@
   <xs:element name="GetUnconnectedCarsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetUnconnectedCarsResult" nillable="true" type="q18:ArrayOfCar" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetUnconnectedCarsResult" nillable="true" type="q19:ArrayOfCar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRefuelById">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="car" nillable="true" type="q19:Car" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="car" nillable="true" type="q20:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRefuelByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetRefuelByIdResult" nillable="true" type="q20:ArrayOfRefuel" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetRefuelByIdResult" nillable="true" type="q21:ArrayOfRefuel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SupremeLollipopService.Zusammensetzungen.Enums;
 using SupremeLollipopService.Zusammensetzungen.Preisentwicklung;
 using SupremeLollipopService.Zusammensetzungen.Verbrauch;
@@ -15,17 +16,23 @@ namespace SupremeLollipopService
             return string.Format("You entered: {0}", value);
         }*/
 
-        /*public Verbrauch GetVerbrauch(Car car)
+        public List<Verbrauch> GetVerbrauch(Car car)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
-                var returnRefuel = session.QueryOver<Refuel>().Where(t => t.Car.Id == car.Id).List();
-                foreach(var entry in returnRefuel)
+                //x => new {x.OrderDate.Year, x.OrderDate.Month}
+
+                return session.Query<Refuel>().Where(x => x.Car.Id == car.Id).GroupBy(x => new { x.Date.Year, x.Date.Month }).Select(g => new Verbrauch()
                 {
-                    
-                }
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    LastMileage = float.Parse(g.Max(i => i.Mileage)),
+                    FirstMileage = float.Parse(g.Min(i => i.Mileage)),
+                    AverageVerbrauch = g.Sum(i => i.Amount) / (float.Parse(g.Max(i => i.Mileage)) - float.Parse(g.Min(i => i.Mileage))) * 100
+                    // i.Mileage.LastOrDefault(y => y.Equals() - i.Mileage.FirstOrDefault())
+                }).OrderByDescending(g => g.Month).ToList();
             }
-        }*/
+        }
 
 
             public Preisentwicklung GetPreisentwicklung()
