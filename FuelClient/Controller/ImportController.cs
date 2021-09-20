@@ -38,7 +38,7 @@ namespace FuelClient.Controller
         public void ImportCommand(object o)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
+            Nullable<bool> result = openFileDialog.ShowDialog();
         }
     }
 }
