@@ -58,6 +58,8 @@ namespace SupremeLollipopService
         List<Car> GetUnconnectedCars();
         [OperationContract]
         List<Refuel> GetRefuelById(Car car);
+        [OperationContract]
+        bool AddRefuelXML(DateTime date, string mileage, float amount, float price);
 
 
         // TODO: Hier Dienstvorgänge hinzufügen

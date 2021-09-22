@@ -116,6 +116,7 @@
     <Compile Include="Controller\VerbrauchController.cs" />
     <Compile Include="Framework\BaseController.cs" />
     <Compile Include="Framework\NotEmptyValidationRule.cs" />
+    <Compile Include="Framework\RefuelXml.cs" />
     <Compile Include="Framework\RelayCommand.cs" />
     <Compile Include="Framework\ViewModelBase.cs" />
     <Compile Include="ViewModels\NewButtonViewModels\CarNewButtonViewmodel.cs" />

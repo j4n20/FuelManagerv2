@@ -6,6 +6,7 @@ using SupremeLollipopService.Zusammensetzungen.Preisentwicklung;
 using SupremeLollipopService.Zusammensetzungen.Verbrauch;
 
 
+
 namespace SupremeLollipopService
 {
     // HINWEIS: Mit dem Befehl "Umbenennen" im Menü "Umgestalten" können Sie den Klassennamen "AuthentificationService" sowohl im Code als auch in der Konfigurationsdatei ändern.
@@ -448,6 +449,28 @@ namespace SupremeLollipopService
             }
         }
 
+        public bool AddRefuelXML(DateTime date, string mileage, float amount, float price)
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var checkedrefuel = session.QueryOver<Refuel>().SingleOrDefault();
+                using (var transaction = session.BeginTransaction())
+                {
+                    checkedrefuel.Mileage = mileage;
+                    checkedrefuel.Date = date;
+                    checkedrefuel.Amount = amount;
+                    checkedrefuel.Price = price;
+                    //checkedrefuel.Car.Id = carId;
+                    //checkedrefuel.Id = ;
+
+                    session.SaveOrUpdate(checkedrefuel);
+                    transaction.Commit();
+                    return true;
+                }
+            }
+        }
+
+        
         public bool AddEmployeeToCar(EmployeeToCarRelation relation)
         {
             try

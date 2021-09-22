@@ -40,17 +40,23 @@ namespace FuelClient.Controller
 
         public void ImportCommand(object o)
         {
-            List<Refuel> mRefuel;
-            var serializer = new XmlSerializer(typeof(List<Refuel>), new XmlRootAttribute("Boxenstopps"));
+            List<RefuelXml> mRefuel;
+            var serializer = new XmlSerializer(typeof(List<RefuelXml>), new XmlRootAttribute("Boxenstopps"));
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             Nullable<bool> result = openFileDialog.ShowDialog();
             if (result == true)
             {
-                var path = openFileDialog.FileName;
+                string path = (openFileDialog.FileName);
+                
                 using (var stream = new FileStream(path, FileMode.Open))
                 {
-                    mRefuel = serializer.Deserialize(stream) as List<Refuel>;
+                    mRefuel = serializer.Deserialize(stream) as List<RefuelXml>;
+                    foreach(var entry in mRefuel)
+                    {
+                        //int carId = client.GetCarIdByLicensePlate(entry.Kennzeichen);
+                        client.AddRefuelXML(entry.Date, entry.Mileage, entry.Amount, entry.Price);
+                    }
                 }
 
             }
