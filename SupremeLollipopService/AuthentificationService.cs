@@ -449,27 +449,21 @@ namespace SupremeLollipopService
             }
         }
 
-        public bool AddRefuelXML(DateTime date, string mileage, float amount, float price)
+
+        public Car GetCarIdByLicensePlate(string licensePlate)
         {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                var checkedrefuel = session.QueryOver<Refuel>().SingleOrDefault();
-                using (var transaction = session.BeginTransaction())
+            try {
+                using (var session = NHibernateHelper.OpenSession())
                 {
-                    checkedrefuel.Mileage = mileage;
-                    checkedrefuel.Date = date;
-                    checkedrefuel.Amount = amount;
-                    checkedrefuel.Price = price;
-                    //checkedrefuel.Car.Id = carId;
-                    //checkedrefuel.Id = ;
-
-                    session.SaveOrUpdate(checkedrefuel);
-                    transaction.Commit();
-                    return true;
+                    var car = session.Query<Car>().Where(x => x.LicensePlate == licensePlate).SingleOrDefault();
+                    return car;
                 }
+            }catch(Exception)
+            {
+                return null;
             }
+            
         }
-
         
         public bool AddEmployeeToCar(EmployeeToCarRelation relation)
         {

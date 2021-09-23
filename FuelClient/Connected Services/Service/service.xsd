@@ -274,20 +274,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddRefuelXML">
+  <xs:element name="GetCarIdByLicensePlate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="mileage" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="amount" type="xs:float" />
-        <xs:element minOccurs="0" name="price" type="xs:float" />
+        <xs:element minOccurs="0" name="licensePlate" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddRefuelXMLResponse">
+  <xs:element name="GetCarIdByLicensePlateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddRefuelXMLResult" type="xs:boolean" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SupremeLollipopService" minOccurs="0" name="GetCarIdByLicensePlateResult" nillable="true" type="q23:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

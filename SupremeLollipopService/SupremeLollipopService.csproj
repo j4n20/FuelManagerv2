@@ -150,7 +150,6 @@
     <Compile Include="Zusammensetzungen\Refuels\Refuel.cs" />
     <Compile Include="Zusammensetzungen\Refuels\RefuelMap.cs" />
     <Compile Include="Zusammensetzungen\Refuels\RefuelRepo.cs" />
-    <Compile Include="Zusammensetzungen\Refuels\Refuelxml.cs" />
     <Compile Include="Zusammensetzungen\Users\FEmployee.cs" />
     <Compile Include="Zusammensetzungen\Users\FEmployeeMap.cs" />
     <Compile Include="Zusammensetzungen\Users\FEmployeeRepo.cs" />

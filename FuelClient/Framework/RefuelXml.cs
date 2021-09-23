@@ -18,10 +18,10 @@ namespace FuelClient.Framework
         public DateTime Date { get; set; }
 
         [XmlElement("Liter")]
-        public float Amount { get; set; }
+        public string Amount { get; set; }
 
         [XmlElement("Bezahlt")]
-        public float Price { get; set; }
+        public string Price { get; set; }
 
         [XmlAttribute("Fahrzeug")]
         public string Kennzeichen { get; set; }

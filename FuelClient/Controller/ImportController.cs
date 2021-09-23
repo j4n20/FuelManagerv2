@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Serialization;
 using FuelClient.Framework;
 using FuelClient.Service;
@@ -45,6 +47,8 @@ namespace FuelClient.Controller
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             Nullable<bool> result = openFileDialog.ShowDialog();
+            double amount = 0;
+            double price = 0;
             if (result == true)
             {
                 string path = (openFileDialog.FileName);
@@ -54,9 +58,61 @@ namespace FuelClient.Controller
                     mRefuel = serializer.Deserialize(stream) as List<RefuelXml>;
                     foreach(var entry in mRefuel)
                     {
-                        //int carId = client.GetCarIdByLicensePlate(entry.Kennzeichen);
-                        client.AddRefuelXML(entry.Date, entry.Mileage, entry.Amount, entry.Price);
+                        if (entry.Amount.Contains(','))
+                        {
+                            amount = Math.Round(Double.Parse(entry.Amount.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat), 2);
+                        } else
+                        {
+                            amount = Math.Round(Double.Parse(entry.Amount, CultureInfo.InvariantCulture.NumberFormat), 2);
+                        }
+
+                        if (entry.Price.Contains(','))
+                        {
+                            price = Math.Round(Double.Parse(entry.Price.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat), 2);
+                        }
+                        else
+                        {
+                            price = Math.Round(Double.Parse(entry.Price, CultureInfo.InvariantCulture.NumberFormat), 2);
+                        }
+                    
+                        Car car = client.GetCarIdByLicensePlate(entry.Kennzeichen);
+
+                        if (car == null)
+                        {
+                            Car newCar = new Car
+                            {
+                                LicensePlate = entry.Kennzeichen,
+                                Vendor = "-",
+                                Model = "-"
+                            };
+                            client.AddCar(newCar);
+
+                            Car refuelCar = client.GetCarIdByLicensePlate(newCar.LicensePlate);
+                            Refuel refuel = new Refuel
+                            {
+                                Date = entry.Date,
+                                Mileage = entry.Mileage,
+                                Amount = (float)amount,
+                                Price = (float)price,
+                                Car = refuelCar
+                            };
+                            client.AddRefuel(refuel);
+                        }
+                        else
+                        {
+                            Refuel refuel = new Refuel
+                            {
+                                Date = entry.Date,
+                                Mileage = entry.Mileage,
+                                Amount = (float)amount,
+                                Price = (float)price,
+                                Car = car
+                            };
+                            client.AddRefuel(refuel);
+                        }
+                        
                     }
+                    MessageBox.Show("Der Importvorgang war erfolgreich");
                 }
 
             }

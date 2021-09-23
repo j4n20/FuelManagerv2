@@ -846,11 +846,11 @@ namespace FuelClient.Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetRefuelById", ReplyAction="http://tempuri.org/IAuthentificationService/GetRefuelByIdResponse")]
         System.Threading.Tasks.Task<FuelClient.Service.Refuel[]> GetRefuelByIdAsync(FuelClient.Service.Car car);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/AddRefuelXML", ReplyAction="http://tempuri.org/IAuthentificationService/AddRefuelXMLResponse")]
-        bool AddRefuelXML(System.DateTime date, string mileage, float amount, float price);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetCarIdByLicensePlate", ReplyAction="http://tempuri.org/IAuthentificationService/GetCarIdByLicensePlateResponse")]
+        FuelClient.Service.Car GetCarIdByLicensePlate(string licensePlate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/AddRefuelXML", ReplyAction="http://tempuri.org/IAuthentificationService/AddRefuelXMLResponse")]
-        System.Threading.Tasks.Task<bool> AddRefuelXMLAsync(System.DateTime date, string mileage, float amount, float price);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentificationService/GetCarIdByLicensePlate", ReplyAction="http://tempuri.org/IAuthentificationService/GetCarIdByLicensePlateResponse")]
+        System.Threading.Tasks.Task<FuelClient.Service.Car> GetCarIdByLicensePlateAsync(string licensePlate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1040,12 +1040,12 @@ namespace FuelClient.Service {
             return base.Channel.GetRefuelByIdAsync(car);
         }
         
-        public bool AddRefuelXML(System.DateTime date, string mileage, float amount, float price) {
-            return base.Channel.AddRefuelXML(date, mileage, amount, price);
+        public FuelClient.Service.Car GetCarIdByLicensePlate(string licensePlate) {
+            return base.Channel.GetCarIdByLicensePlate(licensePlate);
         }
         
-        public System.Threading.Tasks.Task<bool> AddRefuelXMLAsync(System.DateTime date, string mileage, float amount, float price) {
-            return base.Channel.AddRefuelXMLAsync(date, mileage, amount, price);
+        public System.Threading.Tasks.Task<FuelClient.Service.Car> GetCarIdByLicensePlateAsync(string licensePlate) {
+            return base.Channel.GetCarIdByLicensePlateAsync(licensePlate);
         }
     }
 }
