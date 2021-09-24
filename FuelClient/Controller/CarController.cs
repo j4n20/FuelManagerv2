@@ -84,6 +84,8 @@ namespace FuelClient.Controller
                 Model = mView.ModellTextBox.Text,
                 Id = mViewModel.SelectedModel.Id
             };
+
+            client.AddCar(car);
         }
     }
 }
