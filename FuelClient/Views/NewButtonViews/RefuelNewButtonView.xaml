@@ -34,7 +34,7 @@
                 >
             <ComboBox.SelectedItem>
                 <Binding
-                        Path="CarBox"
+                        Path="SelectedCar"
                         Mode="TwoWay"
                         UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>

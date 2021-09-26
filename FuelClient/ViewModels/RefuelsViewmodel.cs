@@ -14,7 +14,8 @@ namespace FuelClient.ViewModels
     {
         public ICommand MinusCommand { get; set; }
         public ICommand PlusCommand { get; set; }
-        public ICommand GetOrderline { get; set; }
+        public ICommand SelectionChanged { get; set; }
+        
 
         private FuelClient.Service.Car mSelectedCar = new FuelClient.Service.Car();
 
@@ -66,7 +67,7 @@ namespace FuelClient.ViewModels
             }
         }
 
-        private Car mCarBox;
+        private Car mCarBox = new Car();
 
         public Car CarBox
         {
@@ -75,72 +76,9 @@ namespace FuelClient.ViewModels
             {
                 mCarBox = value;
                 OnPropertyChanged();
+                
             }
         }
-
-        /*private Employee mEmployeeBox;
-
-        public Employee EmployeeBox
-        {
-            get { return mEmployeeBox; }
-            set
-            {
-                mEmployeeBox = value;
-                OnPropertyChanged();
-            }
-        }
-
         
-        
-        public FuelClient.Service.Employee SelectedEmployee
-        {
-            get { return mSelectedEmployee; }
-            set
-            {
-                mSelectedEmployee = value;
-                OnPropertyChanged();
-            }
-        }
-
-        
-
-        public FuelClient.Service.Customer SelectedCustomer
-        {
-            get { return mSelectedCustomer; }
-            set
-            {
-                mSelectedCustomer = value;
-                OnPropertyChanged();
-            }
-        }
-        public FuelClient.Service.OrderLine SelectedOrderline
-        {
-            get { return mSelectedArticle; }
-            set
-            {
-                mSelectedArticle = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _ordernr;
-        public string OrderNr
-        {
-            get { return _ordernr; }
-            set
-            {
-                _ordernr = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _comment;
-        public string Comment
-        {
-            get { return _comment; }
-            set
-            {
-                _comment = value;
-                OnPropertyChanged();
-            }
-        }*/
     }
 }

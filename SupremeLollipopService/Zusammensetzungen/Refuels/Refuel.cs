@@ -14,10 +14,10 @@ namespace SupremeLollipopService
         public DateTime Date { get; set; }
      
         [DataMember]
-        public float Amount { get; set; }
+        public double Amount { get; set; }
       
         [DataMember]
-        public float Price { get; set; }
+        public double Price { get; set; }
         [DataMember]
         public int Version { get; set; }
         

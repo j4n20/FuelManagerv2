@@ -24,5 +24,10 @@ namespace FuelClient.Views
         {
             InitializeComponent();
         }
+
+        private void CarComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

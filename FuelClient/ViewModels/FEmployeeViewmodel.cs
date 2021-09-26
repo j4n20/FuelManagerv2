@@ -31,6 +31,8 @@ namespace FuelClient.ViewModels
             {
                 mSelectedModel = value;
                 CarModels.Clear();
+                Setread = true;
+                Setenabled = false;
                 OnPropertyChanged();
             }
         }

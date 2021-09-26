@@ -17,15 +17,15 @@ namespace SupremeLollipopService.Zusammensetzungen.Verbrauch
         [DataMember]
         public int Month { get; set; }
         [DataMember]
-        public float FirstMileage { get; set; }
+        public double FirstMileage { get; set; }
         [DataMember]
-        public float LastMileage { get; set; }
+        public double LastMileage { get; set; }
         [DataMember]
         public int Year { get; set; }
         [DataMember]
-        public float AverageVerbrauch { set; get; }
+        public double AverageVerbrauch { set; get; }
         [DataMember]
-        public float AveragePreis { set; get; }
+        public double AveragePreis { set; get; }
         [DataMember]
         public string Date {
             get

@@ -30,7 +30,7 @@ namespace SupremeLollipopService
                     Car = car,
                     LastMileage = float.Parse(g.Max(i => i.Mileage)),
                     FirstMileage = float.Parse(g.Min(i => i.Mileage)),
-                    AverageVerbrauch = g.Sum(i => i.Amount) / (float.Parse(g.Max(i => i.Mileage)) - float.Parse(g.Min(i => i.Mileage))) * 100
+                    AverageVerbrauch = g.Sum(i => i.Amount) / (double.Parse(g.Max(i => i.Mileage)) - double.Parse(g.Min(i => i.Mileage))) * 100
                     // i.Mileage.LastOrDefault(y => y.Equals() - i.Mileage.FirstOrDefault())
                 }).OrderByDescending(g => g.Month).ToList();
             }

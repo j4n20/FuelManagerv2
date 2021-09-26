@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Autofac;
 using FuelClient.Controller.NewButtonController;
+using FuelClient.Framework;
 using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
@@ -17,7 +19,7 @@ namespace FuelClient.Controller
         private RefuelsView mView;
         public RefuelsViewmodel mViewModel;
         private App mApplication;
-
+        
         private AuthentificationServiceClient client = new AuthentificationServiceClient();
 
         public RefuelController(RefuelsView view, RefuelsViewmodel videoMode, App app)
@@ -25,27 +27,31 @@ namespace FuelClient.Controller
             mView = view;
             mViewModel = videoMode;
             mApplication = app;
-            
+            mView.DataContext = mViewModel;
+
             foreach (var entry in client.GetEmployeeToCarById(mApplication.Employee))
             {
                 mViewModel.CarModels.Add(entry.Car);
-            }
-            foreach (var car in mViewModel.CarModels)
-            {
-                foreach (var refuel in client.GetRefuelById(car))
-                {
-                    mViewModel.RefuelsModels.Add(refuel);
-                    mViewModel.SelectedModel = refuel;
-                }
+                mViewModel.CarBox = entry.Car;
+                
             }
             
-            mView.DataContext = mViewModel;
-            mViewModel.CarBox = mViewModel.CarModels.First();
+            foreach (var refuel in client.GetRefuelById(mViewModel.CarBox))
+            {
+                mViewModel.RefuelsModels.Add(refuel);
+                mViewModel.SelectedModel = refuel;
+
+            }
+
+
+
+            mViewModel.SelectionChanged = new RelayCommand(SelectionChanged);
         }
 
         public void ExecuteEditCommand()
         {
             mViewModel.Setread = false;
+            mViewModel.EditMode = true;
             //mViewModel.CarBox = mViewModel.SelectedModel.Car.LicensePlate;
         }
 
@@ -95,13 +101,44 @@ namespace FuelClient.Controller
                 Car = (Car)mView.CarComboBox.SelectedItem,
                 Date = (DateTime)mView.DatePicker.SelectedDate,
                 Mileage = mView.MileageTextBox.Text,
-                Amount = (float)Decimal.Parse(mView.AmountTextBox.Text),
-                Price = (float)Decimal.Parse(mView.PriceTextBox.Text),
+                Amount = (float)Double.Parse(mView.AmountTextBox.Text),
+                Price = (float)Double.Parse(mView.PriceTextBox.Text),
                 Id = mViewModel.SelectedModel.Id
             };
-            
-        }
+            var stringAmt = mView.AmountTextBox.Text;
+            var stringPrc = mView.PriceTextBox.Text;
 
+            if (stringAmt.Contains(','))
+            {
+                refuel.Amount = Math.Round(Double.Parse(stringAmt.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat), 2);
+            }
+            else
+            {
+                refuel.Amount = Math.Round(Double.Parse(stringAmt, CultureInfo.InvariantCulture.NumberFormat), 2);
+            }
+
+            if (stringPrc.Contains(','))
+            {
+                refuel.Price = Math.Round(Double.Parse(stringPrc.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat), 2);
+            }
+            else
+            {
+                refuel.Price = Math.Round(Double.Parse(stringPrc, CultureInfo.InvariantCulture.NumberFormat), 2);
+            }
+
+            mViewModel.EditMode = false;
+            client.AddRefuel(refuel);
+        }
+        public void SelectionChanged(object o)
+        {
+            mViewModel.RefuelsModels.Clear();
+            foreach (var refuel in client.GetRefuelById(mViewModel.CarBox))
+            {
+              
+                mViewModel.RefuelsModels.Add(refuel);
+                mViewModel.SelectedModel = refuel;
+            }
+        }
         
     }
 }

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FuelClient.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase" d:DataContext="{d:DesignInstance Type=viewmodels:RefuelsViewmodel}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:FuelClient.ViewModels" xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" d:DataContext="{d:DesignInstance Type=viewmodels:RefuelsViewmodel}"
              mc:Ignorable="d" 
              d:DesignHeight="451" 
              d:DesignWidth="711">
@@ -60,18 +60,20 @@
                 ItemsSource="{Binding CarModels}"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Margin="10,127,365,60" RenderTransformOrigin="0.487,1.014"
-                
+               
                 >
                 <ComboBox.SelectedItem>
                     <Binding
                         Path="CarBox"
                         Mode="TwoWay"
+                        
                         UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <colorsDomain:NotEmptyValidationRule
                                 ValidatesOnTargetUpdated="True" 
                                 xmlns:colorsDomain="clr-namespace:FuelClient.Framework" />
                         </Binding.ValidationRules>
+                        
                     </Binding>
                 </ComboBox.SelectedItem>
                 <ComboBox.ItemTemplate>
@@ -83,6 +85,11 @@
                         </TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectionChanged}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </ComboBox>
             <TextBox
                 x:Name="MileageTextBox"

@@ -8,6 +8,7 @@ using FuelClient.Service;
 using FuelClient.ViewModels;
 using FuelClient.Views;
 using Autofac;
+using System.Windows;
 
 namespace FuelClient.Controller
 {
@@ -51,14 +52,12 @@ namespace FuelClient.Controller
             mViewModel.SaveCommand = new RelayCommand(ExecuteSaveCommand, CanExecuteSaveCommand);
             mViewModel.DeleteCommand = new RelayCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
 
-            /*if (!mApplication.User.isAdmin)
+            if (mApplication.Employee.isAdmin == false)
             {
                 mView.AdminButton.Visibility = Visibility.Hidden;
-                mView.ArtikelButton.Visibility = Visibility.Hidden;
-                mView.BenutzerButton.Visibility = Visibility.Hidden;
-                mView.FahrerButton.Visibility = Visibility.Hidden;
-                mView.LiefergebieteButton.Visibility = Visibility.Hidden;
-            }*/
+                mView.FahrzeugeButton.Visibility = Visibility.Hidden;
+                mView.MitarbeiterButton.Visibility = Visibility.Hidden;
+            }
         }
 
         public void ExecuteNewCommand(object o)

@@ -43,11 +43,16 @@ namespace FuelClient.Controller
         public void ExecuteFEmployeeSelectedCommand(object obj)
         {
             mViewModel.CarModels.Clear();
+            mViewModel.Setread = true;
+            mViewModel.Setenabled = false;
+            mViewModel.Setvisible = false;
+            mViewModel.EditMode = false;
         }
 
         public void ExecuteEditCommand()
         {
             mViewModel.Setread = false;
+            mViewModel.Setenabled = true;
             mViewModel.Setvisible = true;
             mViewModel.EditMode = true;
             mViewModel.CarModels.Clear();
@@ -127,6 +132,7 @@ namespace FuelClient.Controller
                 Username = mView.SelectedUsername.Text,
                 EmployeeNo = mView.SelectedEmployeeNumber.Text,
                 Password = mView.PasswordBox.Password,
+                isAdmin = (bool)mView.AdminCheckBox.IsChecked,
                 Id = mViewModel.SelectedModel.Id
             };
             //var relationList = new List<EmployeeToCarRelation>();

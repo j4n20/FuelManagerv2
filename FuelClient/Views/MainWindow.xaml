@@ -115,14 +115,14 @@
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"/>
             <RadioButton Content="Fahrzeuge"
-                         Name="ArtikelButton"
+                         Name="FahrzeugeButton"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
                          Command="{Binding CarViewCommand}"/>
             <RadioButton Content="Mitarbeiter"
-                         Name="FahrerButton"
+                         Name="MitarbeiterButton"
                          Height="40"
                          Foreground="Black"
                          FontSize="14"

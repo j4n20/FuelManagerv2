@@ -329,7 +329,7 @@ namespace FuelClient.Service {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float AmountField;
+        private double AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FuelClient.Service.Car CarField;
@@ -344,7 +344,7 @@ namespace FuelClient.Service {
         private string MileageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float PriceField;
+        private double PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VersionField;
@@ -360,7 +360,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Amount {
+        public double Amount {
             get {
                 return this.AmountField;
             }
@@ -425,7 +425,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Price {
+        public double Price {
             get {
                 return this.PriceField;
             }
@@ -548,10 +548,10 @@ namespace FuelClient.Service {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float AveragePreisField;
+        private double AveragePreisField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float AverageVerbrauchField;
+        private double AverageVerbrauchField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FuelClient.Service.Car CarField;
@@ -560,10 +560,10 @@ namespace FuelClient.Service {
         private string DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float FirstMileageField;
+        private double FirstMileageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float LastMileageField;
+        private double LastMileageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MonthField;
@@ -585,7 +585,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float AveragePreis {
+        public double AveragePreis {
             get {
                 return this.AveragePreisField;
             }
@@ -598,7 +598,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float AverageVerbrauch {
+        public double AverageVerbrauch {
             get {
                 return this.AverageVerbrauchField;
             }
@@ -637,7 +637,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float FirstMileage {
+        public double FirstMileage {
             get {
                 return this.FirstMileageField;
             }
@@ -650,7 +650,7 @@ namespace FuelClient.Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float LastMileage {
+        public double LastMileage {
             get {
                 return this.LastMileageField;
             }
